@@ -1,5 +1,5 @@
 {
-  "name": "P2",
+  "name": "Shoes",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.0",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "stockx-api": "^1.0.5"
   }
 }
