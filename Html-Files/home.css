@@ -1,0 +1,8 @@
+.carousel .carousel-item {
+  width: 500px !important;
+  top: -70px;
+}
+
+.padding {
+  padding-top: 20px;
+}
