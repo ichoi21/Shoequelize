@@ -1,5 +1,5 @@
 {
-  "name": "Shoes",
+  "name": "shoes",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "console.table": "^0.10.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.0",
-    "sequelize-cli": "^6.2.0",
-    "stockx-api": "^1.0.5"
+    "sequelize-cli": "^6.2.0"
   }
 }
