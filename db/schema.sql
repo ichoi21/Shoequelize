@@ -2,11 +2,13 @@ DROP DATABASE IF EXISTS shoes_db;
 CREATE database shoes_db;
 USE shoes_db;
 
-CREATE users (
+CREATE TABLE users (
   id INT AUTO_INCREMENT NOT NULL, 
-  fName VARCHAR(20),
-  lName VARCHAR(20),
-
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  username VARCHAR(20),
+  password VARCHAR(20),
+  PRIMARY KEY (id)
 )
 
 CREATE TABLE shoes (
@@ -18,6 +20,8 @@ CREATE TABLE shoes (
     color VARCHAR(50),
     MSRP DECIMAL(7,2),
     mktValue DECIMAL(7,2),
+    img VARCHAR(300),
+    PRIMARY KEY (id)
 );
 
 SELECT * FROM shoes;
