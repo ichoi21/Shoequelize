@@ -15,7 +15,7 @@ CREATE TABLE shoes (
     brand VARCHAR(20),
     style VARCHAR(30),
     gender VARCHAR(30),
-    oolor VARCHAR(50),
+    color VARCHAR(50),
     MSRP DECIMAL(7,2),
     mktValue DECIMAL(7,2),
 );
