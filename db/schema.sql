@@ -6,7 +6,8 @@ CREATE users (
   id INT AUTO_INCREMENT NOT NULL, 
   fName VARCHAR(20),
   lName VARCHAR(20),
-
+  username VARCHAR(20),
+  password VARCHAR(20),
 )
 
 CREATE TABLE shoes (
