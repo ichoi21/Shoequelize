@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS shoequelize_db;
-CREATE database shoequelize_db;
+CREATE database shoquelize_db;
 USE shoequelize_db;
 
 CREATE TABLE users (
