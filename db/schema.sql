@@ -9,7 +9,7 @@ CREATE TABLE users (
   username VARCHAR(20),
   password VARCHAR(20),
   PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE shoes (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
