@@ -6,8 +6,10 @@ CREATE TABLE users (
   id INT AUTO_INCREMENT NOT NULL, 
   first_name VARCHAR(30),
   last_name VARCHAR(30),
+  username VARCHAR(20),
+  password VARCHAR(20),
   PRIMARY KEY (id)
-);
+)
 
 CREATE TABLE shoes (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
