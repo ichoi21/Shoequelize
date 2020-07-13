@@ -1,7 +1,18 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "F@rt0minor",
+=======
+    "password": "password",
+    "database": "shoes_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+>>>>>>> ece75c040970137920b2211bbe7666dec435c60e
     "database": "shoequelize_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
