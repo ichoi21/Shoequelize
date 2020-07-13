@@ -1,41 +1,48 @@
 const express = require("express");
 const router = express.Router();
-const axios = require("axios");
+const db = require("../models");
 
-router.get("/api", (req, res) => {
-  axios
-    .get(
-      `https://stockx.com/api/browse?_search=yeezy&year=2019&brand=adidas&gender=men`,
-      {
-        headers: { "User-Agent": "Chrome/83.0.4103.116" },
-      }
-    )
-    .then((res) => {
-      for (let i = 0; i < 5; i++) {
-        console.log(
-          res.data.Products[i].year +
-            "\n" +
-            res.data.Products[i].brand +
-            "\n" +
-            res.data.Products[i].styleId +
-            "\n" +
-            res.data.Products[i].shoe +
-            "\n" +
-            res.data.Products[i].gender +
-            "\n" +
-            res.data.Products[i].colorway +
-            "\n" +
-            res.data.Products[i].retailPrice +
-            "\n" +
-            res.data.Products[i].market.lastSale +
-            "\n" +
-            res.data.Products[i].media.smallImageUrl +
-            "\n"
-        );
-      }
-
-      res.json({ msg: "Success!" });
+router.get("/all", (req, res) => {
+  db.Shoe.findAll()
+    .then((shoes) => {
+      res.send(shoes);
+      console.log(shoes);
     })
+    .catch((err) => res.send(err));
+});
+
+//fetch a single todo
+router.get("/find/:id", (req, res) => {
+  db.Shoe.findOne({
+    where: { id: req.params.id },
+  })
+    .then((shoes) => res.send(shoes))
+    .catch((err) => res.send(err));
+});
+
+router.post("/add", (req, res) => {
+  db.Shoe.create({
+    year: req.body.year,
+    brand: req.body.brand,
+    sku: req.body.sku,
+    style: req.body.style,
+    gender: req.body.gender,
+    color: req.body.color,
+    msrp: req.body.msrp,
+    market_value: req.body.market_value,
+    // image: req.body.image,
+  }).then((newProfile) => {
+    res.send(newProfile);
+  });
+});
+
+router.delete("/delete/:id", (req, res) => {
+  db.Shoe.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then(() => res.send({ msg: "Deleted shoe!" }))
     .catch((err) => res.send(err));
 });
 
