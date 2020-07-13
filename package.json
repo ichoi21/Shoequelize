@@ -1,7 +1,6 @@
 {
   "name": "shoequelize",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,5 +22,17 @@
     "passport-local": "^1.0.0",
     "sequelize": "^6.3.0",
     "sequelize-cli": "^6.2.0"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichoi21/Shoequelize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ichoi21/Shoequelize/issues"
+  },
+  "homepage": "https://github.com/ichoi21/Shoequelize#readme",
+  "description": ""
 }
