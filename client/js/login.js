@@ -14,27 +14,29 @@ document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll(".fixed-action-btn");
   var instances = M.FloatingActionButton.init(elems, options);
 });
-//
 
-// on click - takes to my collection page
+//Login Function below - grabs input of email and pw to validate
+$(document).ready(function () {
+  const form = $("#loginForm");
+  const email = $("#email");
+  const pw = $("#password");
 
-// Or with jQuery
+  form.on("submit", function (e) {
+    e.preventDefault();
 
-// $(document).ready(function () {
+    loginUser(email.val(), pw.val()).then(() =>
+      window.location.replace("/members")
+    );
+  });
+});
 
-// });
-
-// function sendLoginInfo() {
-//   $.ajax({
-//     type: "POST",
-//     url: "/api/login",
-//     dataType: "json",
-//     data: {
-//       username: $("#userName").value,
-//       password: $("#userPassword").value,
-//     },
-//   }).then(function (response) {
-//     console.log(response);
-//   });
-//   return false;
-// }
+const loginUser = (email, password) => {
+  const userData = { email, password };
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: "POST",
+      url: "/api/login",
+      data: userData,
+    }).then((res) => resolve(res));
+  });
+};
