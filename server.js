@@ -5,12 +5,12 @@ const db = require("./models");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("./client/"));
+app.use(express.static("./client"));
 
-const apiRoutes = require("./lib/routes/api-routes");
+const apiRoutes = require("./routes/api-routes");
 app.use(apiRoutes);
 
-const clientRoutes = require("./lib/routes/client-routes");
+const clientRoutes = require("./routes/client-routes");
 app.use(clientRoutes);
 
 db.sequelize.sync().then(() => {
