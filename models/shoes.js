@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    market_value: {
+    img: {
       type: DataTypes.STRING,
       allowNull: false,
     },
