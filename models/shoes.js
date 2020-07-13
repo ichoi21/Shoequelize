@@ -28,12 +28,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     market_value: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    img: {
-      type: DataTypes.STRING,
       allowNull: false,
     },
   });
