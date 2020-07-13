@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
-  const Shoes = sequelize.define("Shoes", {
+  const Shoe = sequelize.define("Shoe", {
     year: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     brand: {
@@ -38,5 +38,5 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  return Shoes;
+  return Shoe;
 };
