@@ -7,7 +7,7 @@
     <!--Import materialize.css-->
     <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="../client/css/style.css" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shoequelize</title>
@@ -17,22 +17,28 @@
 
     <nav>
         <div class="nav-wrapper green lighten-2">
-            <a href="#" class="brand-logo">Shoe<span class="deep-orange-text">q<span
-                        class="yellow-text">u</span>e</span>lize</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="./About.html">About</a></li>
-                <li><a href="./my_collection.html">My Collection</a></li>
-                <li><a href="./Press.html">Press</a></li>
-                <li><a href="./Help.html">Help</a></li>
-                <li><a href="./login.html">Login</a></li>
-                <li><a href="./Sign-Up.html">Sign Up</a></li>
-            </ul>
+          <a href="#" class="brand-logo"
+            >Shoe<span class="deep-orange-text"
+              >q<span class="yellow-text">u</span>e</span
+            >lize</a
+          >
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./my_collection.html">My Collection</a></li>
+            <li><a href="./press.html">Press</a></li>
+            <li><a href="./press.html">Help</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./sign_up.html">Sign Up</a></li>
+          </ul>
         </div>
-    </nav>
-
+      </nav>
+  
 
     <div class="image-container">
+
+        <!-- search bar  -->
+        <!-- append database based on search and previous searches  -->
 
         <div class="fixed-action-btn">
             <a class="btn-floating btn-large red">
@@ -46,18 +52,12 @@
             </ul>
         </div>
 
-        <div>
-            <img class="responsive-img" src="./shutterstock_588484421.jpg">
 
-        </div>
-
-
-
-
+        <!-- carousel of shoes based on collection (using database) -->
         <div class="carousel cyan lighten-5">
-            <a class="carousel-item" href="#one!"><img src="./shutterstock_1304974954.jpg"></a>
-            <a class="carousel-item" href="#two!"><img src="./shutterstock_1408822526.jpg"></a>
-            <a class="carousel-item" href="#three!"><img src="./shutterstock_1536584207.jpg"></a>
+            <a class="carousel-item" href="#one!"><img src="./assets/shutterstock_1304974954.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="./assets/shutterstock_1408822526.jpg"></a>
+            <a class="carousel-item" href="#three!"><img src="./assets/shutterstock_1536584207.jpg"></a>
         </div>
 
         <footer class="page-footer white">
