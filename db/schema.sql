@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS shoequelize_db;
-CREATE database shoequelize_db;
-USE shoequelize_db;
+DROP DATABASE IF EXISTS shoes_db;
+CREATE database shoes_db;
+USE shoes_db;
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT NOT NULL, 
