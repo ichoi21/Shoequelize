@@ -1,5 +1,9 @@
 # Project 2: Shoequelize
 
+## Description
+
+A database to which enables to to store your shoe collection and know its worth
+
 ## Overview
 
 Working with a team to develop a full-stack web application, designing and building an app using sequelize to create a database of shoes.
@@ -9,18 +13,34 @@ Working with a team to develop a full-stack web application, designing and build
 - Ian Choi
 - Shakila Marando
 - Jessica Menius
-- Mykas Nallas
+- Myhkas Nallas
 
-## Technologies Used
+## Build status
+
+In development
+
+<hr>
+
+## Packages (back-end)
 
 - HTML/CSS
 - JavaScript/jQuery
 - Node.js
+- bcryptjs
+- dotenv
 - express
+- express-session
+- mysql2
+- passport
+- passport-local
 - sequelize
 - sequelize-cli
-- mysql2
-- axios
-- console.table
+
+## Libraries (front-end)
+
+- MaterializeCSS
+- Material icons
+- Google Fonts
+- jQuery
 
 ## Tasks and Roles
