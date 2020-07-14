@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  letter-spacing: 1.5px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.special-font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.carousel .carousel-item {
+  width: 500px !important;
+  top: -70px;
+}
+
+.padding {
+  padding-top: 20px;
+}
