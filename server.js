@@ -1,11 +1,25 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const session = require("express-session");
+const passport = require("./config/passport.js");
 const db = require("./models");
+const PORT = process.env.PORT || 3888;
+require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("./client"));
+
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 const apiRoutes = require("./routes/api-routes");
 app.use(apiRoutes);
