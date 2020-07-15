@@ -19,7 +19,7 @@ $(document).ready(function () {
             </li>
             <li>
               <a class="blue-grey-text text-lighten-1" href="#!">
-                <span span style="font-size: 36px; color: White;">
+                <span style="font-size: 36px; color: White;">
                   <i class="fab fa-facebook"></i></span></a>
             </li>
             <li>
