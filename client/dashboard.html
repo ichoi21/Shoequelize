@@ -20,79 +20,20 @@
   </head>
 
   <body>
-    <!-- Modal for creating a new Log - NEW SHOE -->
-    <div id="newLogModal" class="modal">
-      <div class="modal-content">
-        <h4>Shoes Collector</h4>
-        <p>Add a shoe to your closet!</p>
-        <form id="logForm">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="companyInput" type="text" />
-              <label for="companyInput">Company</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="roastInput" type="text" />
-              <label for="roastInput">Roast</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="nameInput" type="text" />
-              <label for="nameInput">Name</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea
-                id="descriptionInput"
-                class="materialize-textarea"
-              ></textarea>
-              <label for="descriptionInput">Description</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col s6">
-              <ax
-                href="#!"
-                id="logCancel"
-                class="waves-effect waves-green btn-flat"
-                ><i class="material-icons left">cancel</i>Cancel</ax
-              >
-            </div>
-            <div class="col s6">
-              <div class="right-align">
-                <button
-                  action="submit"
-                  class="waves-effect waves-light btn purple"
-                >
-                  <i class="material-icons left">assignment</i>Log
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
     <!-- Beginning of nav -->
     <nav>
       <div class="nav-wrapper brown darken-3">
         <div class="row">
           <div class="col sm-12">
-            <a href="#!" class="brand-logo">CoffeeMe</a>
+            <a href="#!" class="brand-logo">Shoequelize</a>
             <a href="#!" data-target="mobile-demo" class="sidenav-trigger"
               ><i class="material-icons">menu</i></a
             >
           </div>
           <ul class="right hide-on-med-and-down">
             <li>
-              <a id="newLogBtn" href="#!"
-                ><i class="material-icons right">assignment</i>Search for a
-                shoe</a
+              <a id="shoeCollection" href="#!"
+                ><i class="material-icons right">assignment</i>Collection</a
               >
             </li>
             <li>
@@ -104,6 +45,20 @@
         </div>
       </div>
     </nav>
+
+    <section><div>
+      <form>
+          <input type="text" id="query" placeholder="  Enter Shoe Name" />
+          <input type="text" id="shoeBrand" placeholder="  Enter Brand" />
+          <input type="text" id="shoeYr" placeholder="  Enter Year" />
+          <input type="text" id="shoeGdr" placeholder="  Enter Gender" />
+          <!-- <input type="text" id="shoeBrand" placeholder="  Enter Brand" /> -->
+          <button
+            type="button"
+            id="btnSearch"
+          >Submit</button>
+        </form></section>
+      
     <!-- expandable side nav -->
     <ul class="sidenav" id="mobile-demo">
       <li>
@@ -119,9 +74,12 @@
     </ul>
     <main class="#ffecb3 amber lighten-4">
       <div class="container">
-        <div class="col s8 offset-s2" id="logsContainer"></div>
+        <div class="col s8 offset-s2" id="result"></div>
       </div>
     </main>
+
+    <section id="result"></section>
+
     <!-- Begin footer -->
     <footer class="page-footer magenta lighten-3"></footer>
 
