@@ -28,7 +28,7 @@ module.exports = {
       try {
         const user = await db.User.findOne({
           where: { id: req.user.id },
-          include: [db.Profile, db.Log],
+          include: [db.Profile, db.Shoe],
         });
 
         res.send({ email: user.email, profile: user.Profile, log: user.Logs });
