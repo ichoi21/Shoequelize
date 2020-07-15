@@ -5,7 +5,9 @@ $(document).ready(function () {
       <div class="row">
         <div class="col l6 s12">
           <h5 class="blue-grey-text">Company's Info</h5>
-          <p class="blue-grey-text text-lighten-1">Contact Us</p>
+          <p class="blue-grey-text text-lighten-1">Contact Us</p>         
+          <p class="blue-grey-text text-lighten-1">Press</p>
+          <p class="blue-grey-text text-lighten-1">SiteMap</p>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="blue-grey-text">Social Media</h5>
