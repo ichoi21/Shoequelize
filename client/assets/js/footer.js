@@ -11,13 +11,19 @@ $(document).ready(function () {
           <h5 class="blue-grey-text">Social Media</h5>
           <ul>
             <li>
-              <a class="blue-grey-text text-lighten-1" href="#!">Twitter</a>
+              <a class="blue-grey-text text-lighten-1" href="#!">
+                <span style="font-size: 36px; color: White;">
+                  <i class="fab fa-twitter"></i></span></a>              
             </li>
             <li>
-              <a class="blue-grey-text text-lighten-1" href="#!">Facebook</a>
+              <a class="blue-grey-text text-lighten-1" href="#!">
+                <span span style="font-size: 36px; color: White;">
+                  <i class="fab fa-facebook"></i></span></a>
             </li>
             <li>
-              <a class="blue-grey-text text-lighten-1" href="#!">Instagram</a>
+              <a class="blue-grey-text text-lighten-1" href="#!">
+                <span style="font-size: 36px; color: White;">
+                  <i class="fab fa-instagram"></i></span></a>
             </li>
           </ul>
         </div>

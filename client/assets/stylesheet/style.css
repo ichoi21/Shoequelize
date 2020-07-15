@@ -26,3 +26,7 @@ main {
 .padding {
   padding-top: 20px;
 }
+
+.sidenav {
+  background-color: rgba(0, 128, 90, 0.65);
+}
