@@ -70,3 +70,7 @@ const registerUser = (userObj) => {
     );
   });
 };
+
+$(document).ready(function () {
+  $(".carousel").carousel();
+});
