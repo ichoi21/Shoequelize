@@ -4,11 +4,11 @@ module.exports = {
   newLog: async (req, res) => {
     if (req.user) {
       try {
-        const newLog = await db.Log.create({
+        const newShoe = await db.Shoe.create({
           ...req.body,
           UserId: req.user.id,
         });
-        res.send(newLog);
+        res.send(newShoe);
       } catch (err) {
         res.send({ err_message: err });
       }
@@ -20,12 +20,12 @@ module.exports = {
   getUserLogs: async (req, res) => {
     if (req.user) {
       try {
-        const userLogs = await db.Log.findAll({
+        const userShoe = await db.Shoe.findAll({
           where: {
             UserId: req.user.id,
           },
         });
-        res.send(userLogs);
+        res.send(userShoe);
       } catch (err) {
         res.send({ err_message: err });
       }
@@ -36,8 +36,8 @@ module.exports = {
 
   getAllLogs: async (req, res) => {
     try {
-      const allLogs = await db.Log.findAll({});
-      res.send(allLogs);
+      const allShoes = await db.Shoe.findAll({});
+      res.send(allShoes);
     } catch (err) {
       res.send({ err_message: err });
     }
