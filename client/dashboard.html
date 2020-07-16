@@ -15,7 +15,7 @@
       src="https://kit.fontawesome.com/a361b2e3ef.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./assets/stylesheet/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Shoequelize | Dashboard</title>
   </head>
 
@@ -99,7 +99,7 @@
               </form>
             </div>
           </div>
-          <div class="col s12 m10 offset-m1">
+          <!-- <div class="col s12 m10 offset-m1">
             <div id="searchBar" class="card">
               <form>
                 <div class="row">
@@ -138,14 +138,83 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> -->
         </div>
 
-        <div class="col s8 offset-s2" id="result"></div>
+        <!-- <div class="col s12 m9 offset-s2" id="result"> -->
+        <div class="container" id="result">
+          <div class="row">
+            <div class="col s12 m4">
+              <div id="content" class="card center-align">
+                <div class="cardTitle">
+                  ${data.brand}: ${data.name} (${data.gender})
+                </div>
+                <div class="shoeImg">
+                  <img
+                    src="${
+                    data.timg
+                  }"
+                    alt=""
+                  />
+                </div>
+                <div class="color">${data.colorway}</div>
+                <div class="pid">${data.PID}</div>
+                <div class="year">
+                  ${data.year} | MRSP: ${ data.PID } -
+                  ${formatter.format(data.msrp)}
+                </div>
+                <div class="mv">
+                  Current Value: ${formatter.format( data.mV )}
+                </div>
+                <div class=" ">
+                  <button
+                    id="addBtn"
+                    data-id="${i}"
+                    class="btn waves-effect btn-flt green"
+                  >
+                    <i class="material-icons left"> add_circle_outline </i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m4">
+              <div id="content" class="card center-align">
+                <div class="cardTitle">
+                  ${data.brand}: ${data.name} (${data.gender})
+                </div>
+                <div class="shoeImg">
+                  <img
+                    src="${
+                    data.timg
+                  }"
+                    alt=""
+                  />
+                </div>
+                <div class="color">${data.colorway}</div>
+                <div class="pid">${data.PID}</div>
+                <div class="year">
+                  ${data.year} | MRSP: ${ data.PID } -
+                  ${formatter.format(data.msrp)}
+                </div>
+                <div class="mv">
+                  Current Value: ${formatter.format( data.mV )}
+                </div>
+                <div class=" ">
+                  <button
+                    id="addBtn"
+                    data-id="${i}"
+                    class="btn waves-effect btn-flt green"
+                  >
+                    <i class="material-icons left"> add_circle_outline </i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- </div> -->
     </main>
-
-    <section id="result"></section>
 
     <!-- Begin footer -->
     <footer class="page-footer magenta lighten-3"></footer>

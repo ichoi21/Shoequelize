@@ -44,33 +44,42 @@ $(document).ready(function () {
             msrp: shoe.Products[i].retailPrice,
             mV: shoe.Products[i].market.lastSale,
             img: shoe.Products[i].media.smallImageUrl,
+            timg: shoe.Products[i].media.thumbUrl,
           };
           resultContainer.push(data);
 
-          // let year = shoe.Products[i].year;
-          // let brand = shoe.Products[i].brand;
-          // let PID = shoe.Products[i].styleId;
-          // let name = shoe.Products[i].shoe;
-          // let gender = shoe.Products[i].gender;
-          // let colorway = shoe.Products[i].colorway;
-          // let msrp = shoe.Products[i].retailPrice;
-          // let mV = shoe.Products[i].market.lastSale;
-          // let img = shoe.Products[i].media.smallImageUrl;
           $("#result").append(`
-              <div id="content">
-                      <h2>
-                      ${data.year} ${data.gender} ${data.brand}: ${data.name}
-                      </h2>
-                      <h4>
-                        ${data.PID} - ${formatter.format(data.msrp)}
-                      </h4>
-                      <h3> ${data.colorway}</h3>
-                      <h3> Current Value: ${formatter.format(data.mV)}</h3>
-                      <img src="${data.img}" alt="" />
-                      <button id="addBtn" data-id=${i}>Add</button>
-                    </div>
+                      <div class="col s12 m3">
+                        <div id="content" class="card-panel center-align">
+                          <div class="card-title">
+                            ${data.brand}: ${data.name} (${data.gender})
+                          </div>
+                          <div class="card-image small"><img src="${
+                            data.timg
+                          }" alt="" /></div>
+                          <div class="color">${data.colorway}</div>
+                          <div class="pid">${data.PID}</div>
+                          <div class="year">
+                            ${data.year} | MRSP: ${
+            data.PID
+          } - ${formatter.format(data.msrp)}
+                          </div>
+                          <div class="mv">Current Value: ${formatter.format(
+                            data.mV
+                          )}</div>
+                          <div class=" ">
+                            <button
+                              id="addBtn"
+                              data-id="${i}"
+                              class="btn waves-effect btn-flt green"
+                            >
+                              <i class="material-icons left"> add_circle_outline </i>Add
+                            </button>
+                          </div>
+                        </div>
+                      </div>
               `);
-          resolve("sucess!");
+          resolve("Search: Results shown!");
         }
       });
     });
