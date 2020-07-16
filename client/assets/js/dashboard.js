@@ -1,6 +1,5 @@
 $(document).ready(function () {
   stockx();
-  addShoe();
 
   let resultContainer = [];
 
@@ -20,6 +19,46 @@ $(document).ready(function () {
       stockXSearch();
     });
   }
+
+  $(document).on("click", "#addBtn", function (e) {
+    e.preventDefault();
+    const index = $(this).attr("data-id");
+    console.log(resultContainer);
+
+    const newShoes = {
+      // year: 2019,
+      // brand: "adidas",
+      // PID: "BB0394",
+      // style: "Citrin/Citrin",
+      // gender: "men",
+      // color: "Citrin",
+      // msrp: 220,
+      // image: "google.com",
+      // market_value: 325,
+      year: resultContainer[index].year,
+      brand: resultContainer[index].brand,
+      PID: resultContainer[index].PID,
+      style: resultContainer[index].style,
+      gender: resultContainer[index].$gender,
+      color: resultContainer[index].color,
+      msrp: resultContainer[index].msrp,
+      image: resultContainer[index].image,
+      market_value: resultContainer[index].market_value,
+      // };
+    };
+    addShoe(newShoes).then(() => console.log(index));
+  });
+
+  // const saveShoe = () => {
+  //   return new Promise((resolve, reject) => {
+  //     $(document).on("click", "#addBtn", function (e) {
+  //       e.preventDefault();
+  //       obj = resultContainer[index];
+  //       resolve({ msg: "success" });
+  //     });
+  //   });
+  // };
+
   const stockXSearch = () => {
     return new Promise((resolve, reject) => {
       $.ajax({
@@ -47,10 +86,9 @@ $(document).ready(function () {
             timg: shoe.Products[i].media.thumbUrl,
           };
           resultContainer.push(data);
-
           $("#result").append(`
-                      <div class="col s12 m4">
-                        <div id="content" class="card small center-align">
+          <div class="col s12 m3">
+          <div id="content" class="card-panel center-align">
                           <div class="card-title">
                             ${data.brand}: ${data.name} (${data.gender})
                           </div>
@@ -84,34 +122,19 @@ $(document).ready(function () {
       });
     });
   };
-  function addShoe() {
-    $(document).on("click", "#addBtn", function () {
-      console.log(resultContainer[$(this).attr("data-id")]);
+  const addShoe = (shoeObj) => {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        type: "POST",
+        url: "/shoe/new",
+        data: shoeObj,
+      }).then(
+        (res) => resolve(res),
+        (err) => reject(err)
+      );
     });
-  }
+  };
 });
-
-// const createLog = () => {
-//   return new Promise((resolve, reject) => {
-//     $.ajax({
-//       type: "GET",
-//       url: "/logs/new",
-//       data: {
-//         company: $("#companyInput").val().trim(),
-//         roast: $("#roastInput").val().trim(),
-//         name: $("#nameInput").val().trim(),
-//         description: $("#descriptionInput").val().trim(),
-//       },
-//     }).then(() => {
-//       $("#companyInput").val("");
-//       $("#roastInput").val("");
-//       $("#nameInput").val("");
-//       $("#descriptionInput").val("");
-//       logInstance.close();
-//       resolve("success");
-//     });
-//   });
-// };
 
 // const renderLogs = () => {
 //   return new Promise((resolve, reject) => {

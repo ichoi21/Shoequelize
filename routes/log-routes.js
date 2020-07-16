@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {
-  newLog,
+  newShoe,
   getUserLogs,
   getAllLogs,
 } = require("../controllers/log-controller");
@@ -19,9 +19,9 @@ router.get("/logs/all", getAllLogs);
 router.get("/logs/user", getUserLogs);
 
 // Create a new user log
-// Route: http://localhost:3000/logs/new
+// Route: http://localhost:3000/shoe/new
 // Type: POST
 
-router.post("/logs/new", newLog);
+router.post("/shoe/new", newShoe);
 
 module.exports = router;
