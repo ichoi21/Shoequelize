@@ -49,8 +49,8 @@ $(document).ready(function () {
           resultContainer.push(data);
 
           $("#result").append(`
-                      <div class="col s12 m4">
-                        <div id="content" class="card small center-align">
+                      <div class="col s12 m3">
+                        <div id="content" class="card-panel center-align">
                           <div class="card-title">
                             ${data.brand}: ${data.name} (${data.gender})
                           </div>
