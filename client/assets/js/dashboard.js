@@ -59,11 +59,11 @@ $(document).ready(function () {
           // let img = shoe.Products[i].media.smallImageUrl;
           $("#result").append(`
                       <div class="col s12 m4">
-                        <div id="content" class="card center-align">
-                          <div class="cardTitle">
+                        <div id="content" class="card small center-align">
+                          <div class="card-title">
                             ${data.brand}: ${data.name} (${data.gender})
                           </div>
-                          <div class="shoeImg"><img src="${
+                          <div class="card-image small"><img src="${
                             data.timg
                           }" alt="" /></div>
                           <div class="color">${data.colorway}</div>
