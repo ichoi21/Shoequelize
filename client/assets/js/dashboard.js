@@ -35,6 +35,7 @@ $(document).ready(function () {
       // msrp: 220,
       // image: "google.com",
       // market_value: 325,
+      // timg: "google.com",
       year: resultContainer[index].year,
       brand: resultContainer[index].brand,
       PID: resultContainer[index].PID,
@@ -44,7 +45,7 @@ $(document).ready(function () {
       msrp: resultContainer[index].msrp,
       image: resultContainer[index].image,
       market_value: resultContainer[index].market_value,
-      // };
+      timg: resultContainer[index].timg,
     };
     addShoe(newShoes).then(() => console.log(index));
   });
