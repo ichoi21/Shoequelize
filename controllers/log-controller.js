@@ -1,11 +1,19 @@
 const db = require("../models");
 
 module.exports = {
-  newLog: async (req, res) => {
+  newShoe: async (req, res) => {
     if (req.user) {
       try {
         const newShoe = await db.Shoe.create({
-          ...req.body,
+          year: req.body.year,
+          brand: req.body.brand,
+          PID: req.body.PID,
+          style: req.body.style,
+          gender: req.body.gender,
+          color: req.body.color,
+          msrp: req.body.msrp,
+          image: req.body.image,
+          market_value: req.body.market_value,
           UserId: req.user.id,
         });
         res.send(newShoe);

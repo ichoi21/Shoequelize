@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    sku: {
+    PID: {
       type: DataTypes.STRING,
       allowNull: false,
     },
