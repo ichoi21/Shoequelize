@@ -12,10 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    style: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     gender: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,6 +31,10 @@ module.exports = (sequelize, DataTypes) => {
     market_value: {
       type: DataTypes.DECIMAL,
       allowNull: false,
+    },
+    timg: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   });
 

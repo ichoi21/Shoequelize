@@ -23,8 +23,6 @@ $(document).ready(function () {
   $(document).on("click", "#addBtn", function (e) {
     e.preventDefault();
     const index = $(this).attr("data-id");
-    console.log(resultContainer);
-
     const newShoes = {
       // year: 2019,
       // brand: "adidas",
@@ -35,18 +33,18 @@ $(document).ready(function () {
       // msrp: 220,
       // image: "google.com",
       // market_value: 325,
+      // timg: "google.com",
       year: resultContainer[index].year,
       brand: resultContainer[index].brand,
       PID: resultContainer[index].PID,
-      style: resultContainer[index].style,
-      gender: resultContainer[index].$gender,
-      color: resultContainer[index].color,
+      gender: resultContainer[index].gender,
+      color: resultContainer[index].colorway,
       msrp: resultContainer[index].msrp,
-      image: resultContainer[index].image,
-      market_value: resultContainer[index].market_value,
-      // };
+      image: resultContainer[index].img,
+      market_value: resultContainer[index].mV,
+      timg: resultContainer[index].timg,
     };
-    addShoe(newShoes).then(() => console.log(index));
+    addShoe(newShoes).then(() => console.log(resultContainer[index].year));
   });
 
   // const saveShoe = () => {
