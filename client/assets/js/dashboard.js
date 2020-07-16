@@ -48,15 +48,6 @@ $(document).ready(function () {
           };
           resultContainer.push(data);
 
-          // let year = shoe.Products[i].year;
-          // let brand = shoe.Products[i].brand;
-          // let PID = shoe.Products[i].styleId;
-          // let name = shoe.Products[i].shoe;
-          // let gender = shoe.Products[i].gender;
-          // let colorway = shoe.Products[i].colorway;
-          // let msrp = shoe.Products[i].retailPrice;
-          // let mV = shoe.Products[i].market.lastSale;
-          // let img = shoe.Products[i].media.smallImageUrl;
           $("#result").append(`
                       <div class="col s12 m4">
                         <div id="content" class="card small center-align">
