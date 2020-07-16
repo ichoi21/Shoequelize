@@ -14,6 +14,7 @@ module.exports = {
           msrp: req.body.msrp,
           image: req.body.image,
           market_value: req.body.market_value,
+          timg: req.body.timg,
           UserId: req.user.id,
         });
         res.send(newShoe);
