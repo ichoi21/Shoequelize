@@ -8,7 +8,6 @@ module.exports = {
           year: req.body.year,
           brand: req.body.brand,
           PID: req.body.PID,
-          style: req.body.style,
           gender: req.body.gender,
           color: req.body.color,
           msrp: req.body.msrp,
