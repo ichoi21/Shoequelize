@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
+    timg: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   });
 
   return Shoe;
