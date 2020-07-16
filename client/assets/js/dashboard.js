@@ -48,22 +48,13 @@ $(document).ready(function () {
           };
           resultContainer.push(data);
 
-          // let year = shoe.Products[i].year;
-          // let brand = shoe.Products[i].brand;
-          // let PID = shoe.Products[i].styleId;
-          // let name = shoe.Products[i].shoe;
-          // let gender = shoe.Products[i].gender;
-          // let colorway = shoe.Products[i].colorway;
-          // let msrp = shoe.Products[i].retailPrice;
-          // let mV = shoe.Products[i].market.lastSale;
-          // let img = shoe.Products[i].media.smallImageUrl;
           $("#result").append(`
                       <div class="col s12 m4">
-                        <div id="content" class="card center-align">
-                          <div class="cardTitle">
+                        <div id="content" class="card small center-align">
+                          <div class="card-title">
                             ${data.brand}: ${data.name} (${data.gender})
                           </div>
-                          <div class="shoeImg"><img src="${
+                          <div class="card-image small"><img src="${
                             data.timg
                           }" alt="" /></div>
                           <div class="color">${data.colorway}</div>
