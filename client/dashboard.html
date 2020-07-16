@@ -15,7 +15,7 @@
       src="https://kit.fontawesome.com/a361b2e3ef.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./assets/stylesheet/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Shoequelize | Dashboard</title>
   </head>
 
@@ -47,19 +47,6 @@
       </div>
     </nav>
 
-    <section><div>
-      <form>
-          <input type="text" id="query" placeholder="  Enter Shoe Name" />
-          <input type="text" id="shoeBrand" placeholder="  Enter Brand" />
-          <input type="text" id="shoeYr" placeholder="  Enter Year" />
-          <input type="text" id="shoeGdr" placeholder="  Enter Gender" />
-          <!-- <input type="text" id="shoeBrand" placeholder="  Enter Brand" /> -->
-          <button
-            type="button"
-            id="btnSearch"
-          >Submit</button>
-        </form></section>
-      
     <!-- expandable side nav -->
     <ul class="sidenav" id="mobile-demo">
       <li>
@@ -75,11 +62,159 @@
     </ul>
     <main class="#ffecb3 amber lighten-4">
       <div class="container">
-        <div class="col s8 offset-s2" id="result"></div>
-      </div>
-    </main>
+        <div class="row">
+          <div class="col s12 m10 offset-m1">
+            <div id="searchBar" class="card">
+              <form>
+                <div class="row">
+                  <div class="col s10 m10 offset-m1">
+                    <input type="text" id="query" placeholder="  Shoe Name" />
+                    <input
+                      type="text"
+                      id="shoeBrand"
+                      placeholder="  Enter Brand"
+                    />
+                    <input type="text" id="shoeYr" placeholder="  Enter Year" />
+                    <input type="text" id="shoeGdr" placeholder=" Gender" />
+                    <!-- <input type="text" id="shoeBrand" placeholder="  Enter Brand" /> -->
+                  </div>
+                </div>
+                <div class="row">
+                  <div
+                    class="col s10 m8 offset-m9"
+                    style="margin-bottom: 20px;"
+                  >
+                    <button
+                      type="button"
+                      id="btnSearch"
+                      class="waves-effect waves-green btn-flat cyan"
+                    >
+                      Search
+                      <i class="material-icons right">
+                        search
+                      </i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- <div class="col s12 m10 offset-m1">
+            <div id="searchBar" class="card">
+              <form>
+                <div class="row">
+                  <select
+                    class="MuiNativeSelect-root MuiNativeSelect-select MuiInputBase-input MuiInput-input"
+                    aria-invalid="false"
+                    id="brand"
+                  >
+                    <option value=""></option>
+                    <option value="Nike">Nike</option>
+                    <option value="Jordan">Jordan</option>
+                    <option value="Converse">Converse</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="Vans">Vans</option>
+                    <option value="Puma">Puma</option>
+                    <option value="Reebok">Reebok</option>
+                    <option value="New Balance">New Balance</option>
+                    <option value="Saucony">Saucony</option>
+                    <option value="Asics">Asics</option>
+                  </select>
+                  <div
+                    class="col s10 m8 offset-m9"
+                    style="margin-bottom: 20px; margin-top: 20px;"
+                  >
+                    <button
+                      type="button"
+                      id="btnSearch"
+                      class="waves-effect waves-green btn-flat cyan"
+                    >
+                      Search
+                      <i class="material-icons right">
+                        search
+                      </i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div> -->
+        </div>
 
-    <section id="result"></section>
+        <!-- <div class="col s12 m9 offset-s2" id="result"> -->
+        <div class="container" id="result">
+          <div class="row">
+            <div class="col s12 m4">
+              <div id="content" class="card center-align">
+                <div class="cardTitle">
+                  ${data.brand}: ${data.name} (${data.gender})
+                </div>
+                <div class="shoeImg">
+                  <img
+                    src="${
+                    data.timg
+                  }"
+                    alt=""
+                  />
+                </div>
+                <div class="color">${data.colorway}</div>
+                <div class="pid">${data.PID}</div>
+                <div class="year">
+                  ${data.year} | MRSP: ${ data.PID } -
+                  ${formatter.format(data.msrp)}
+                </div>
+                <div class="mv">
+                  Current Value: ${formatter.format( data.mV )}
+                </div>
+                <div class=" ">
+                  <button
+                    id="addBtn"
+                    data-id="${i}"
+                    class="btn waves-effect btn-flt green"
+                  >
+                    <i class="material-icons left"> add_circle_outline </i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m4">
+              <div id="content" class="card center-align">
+                <div class="cardTitle">
+                  ${data.brand}: ${data.name} (${data.gender})
+                </div>
+                <div class="shoeImg">
+                  <img
+                    src="${
+                    data.timg
+                  }"
+                    alt=""
+                  />
+                </div>
+                <div class="color">${data.colorway}</div>
+                <div class="pid">${data.PID}</div>
+                <div class="year">
+                  ${data.year} | MRSP: ${ data.PID } -
+                  ${formatter.format(data.msrp)}
+                </div>
+                <div class="mv">
+                  Current Value: ${formatter.format( data.mV )}
+                </div>
+                <div class=" ">
+                  <button
+                    id="addBtn"
+                    data-id="${i}"
+                    class="btn waves-effect btn-flt green"
+                  >
+                    <i class="material-icons left"> add_circle_outline </i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </main>
 
     <!-- Begin footer -->
     <footer class="page-footer magenta lighten-3"></footer>
