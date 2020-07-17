@@ -15,7 +15,37 @@
 
 <body>
 
-  <nav></nav>
+  <div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper green lighten-2">
+      <div class="row">
+        <div class="col sm-12">
+          <a id="shoequelize" href="#!" class="brand-logo">Shoe<span class="deep-orange-text">q<span
+                class="yellow-text">u</span>e</span>lize</a>
+        </div>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a id="shoeCollection" href="#!"><i class="material-icons right">assignment</i>Collection</a>
+          </li>
+          <li>
+            <a class="logoutBtn" href="/auth/logout"><i class="material-icons right">exit_to_app</i>Logout</a>
+          </li>
+        </ul>
+      </div>
+      <div id="alert" class=""></div>
+    </div>
+  </nav>
+  </div>
+
+  <!-- expandable side nav -->
+  <ul class="sidenav" id="mobile-demo">
+    <li>
+      <a class="newLogBtn" href="#!"><i class="material-icons right">assignment</i>New Log</a>
+    </li>
+    <li>
+      <a class="loginBtn" href="#"><i class="material-icons right">exit_to_app</i>Logout</a>
+    </li>
+  </ul>
   <!--nav is append from navbar.js-->
 
   <div class="image-container">
@@ -51,7 +81,7 @@
 	<script type="text/JavaScript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./assets/js/home.js"></script>
-  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/collection.js"></script>
   <script src="./assets/js/footer.js"></script>
 </body>
 

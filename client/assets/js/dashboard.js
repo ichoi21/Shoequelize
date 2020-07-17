@@ -8,6 +8,28 @@ $(document).ready(function () {
     currency: "USD",
   });
 
+  $("#shoeCollection").on("click", () => {
+    window.location.href = "/collection";
+  });
+
+  $(document).on("click", "#addBtn", function (e) {
+    e.preventDefault();
+    const index = $(this).attr("data-id");
+    const newShoes = {
+      year: resultContainer[index].year,
+      brand: resultContainer[index].brand,
+      PID: resultContainer[index].PID,
+      gender: resultContainer[index].gender,
+      color: resultContainer[index].colorway,
+      msrp: resultContainer[index].msrp,
+      image: resultContainer[index].img,
+      market_value: resultContainer[index].mV,
+      timg: resultContainer[index].timg,
+    };
+    showAlert("Shoes saved to Collection!", "teal lighten-2");
+    addShoe(newShoes).then(() => console.log(resultContainer[index].year));
+  });
+
   function stockx() {
     $("#btnSearch").on("click", function (e) {
       e.preventDefault();
@@ -19,43 +41,6 @@ $(document).ready(function () {
       stockXSearch();
     });
   }
-
-  $(document).on("click", "#addBtn", function (e) {
-    e.preventDefault();
-    const index = $(this).attr("data-id");
-    const newShoes = {
-      // year: 2019,
-      // brand: "adidas",
-      // PID: "BB0394",
-      // style: "Citrin/Citrin",
-      // gender: "men",
-      // color: "Citrin",
-      // msrp: 220,
-      // image: "google.com",
-      // market_value: 325,
-      // timg: "google.com",
-      year: resultContainer[index].year,
-      brand: resultContainer[index].brand,
-      PID: resultContainer[index].PID,
-      gender: resultContainer[index].gender,
-      color: resultContainer[index].colorway,
-      msrp: resultContainer[index].msrp,
-      image: resultContainer[index].img,
-      market_value: resultContainer[index].mV,
-      timg: resultContainer[index].timg,
-    };
-    addShoe(newShoes).then(() => console.log(resultContainer[index].year));
-  });
-
-  // const saveShoe = () => {
-  //   return new Promise((resolve, reject) => {
-  //     $(document).on("click", "#addBtn", function (e) {
-  //       e.preventDefault();
-  //       obj = resultContainer[index];
-  //       resolve({ msg: "success" });
-  //     });
-  //   });
-  // };
 
   const stockXSearch = () => {
     return new Promise((resolve, reject) => {
@@ -120,6 +105,7 @@ $(document).ready(function () {
       });
     });
   };
+
   const addShoe = (shoeObj) => {
     return new Promise((resolve, reject) => {
       $.ajax({
@@ -132,6 +118,14 @@ $(document).ready(function () {
       );
     });
   };
+  function showAlert(str, type) {
+    $("#alert").show();
+    $("#alert").attr("class", `card-panel ${type}`);
+    $("#alert").text(str);
+    window.setTimeout(function () {
+      $("#alert").hide();
+    }, 2000);
+  }
 });
 
 // const renderLogs = () => {
@@ -167,19 +161,3 @@ $(document).ready(function () {
 //     });
 //   });
 // };
-
-// $(".parallax").parallax();
-// $(".sidenav").sidenav();
-
-// const logModal = document.getElementById("newLogModal");
-// const logInstance = M.Modal.init(logModal, { dismissible: true });
-
-// renderLogs();
-
-// $("#newLogBtn").on("click", () => logInstance.open());
-// $("#logCancel").on("click", () => logInstance.close());
-
-// $("#logForm").on("submit", (e) => {
-//   e.preventDefault();
-//   createLog().then(() => renderLogs());
-// });
