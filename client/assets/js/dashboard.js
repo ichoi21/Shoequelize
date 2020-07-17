@@ -81,9 +81,7 @@ $(document).ready(function () {
                           <div class="color">${data.colorway}</div>
                           <div class="pid">${data.PID}</div>
                           <div class="year">
-                            ${data.year} | MRSP: ${
-            data.PID
-          } - ${formatter.format(data.msrp)}
+                            ${data.year} | MRSP: ${formatter.format(data.msrp)}
                           </div>
                           <div class="mv">Current Value: ${formatter.format(
                             data.mV
@@ -120,7 +118,7 @@ $(document).ready(function () {
   };
   function showAlert(str, type) {
     $("#alert").show();
-    $("#alert").attr("class", `card-panel ${type}`);
+    $("#alert").attr("class", `m6 s12 card-panel ${type}`);
     $("#alert").text(str);
     window.setTimeout(function () {
       $("#alert").hide();

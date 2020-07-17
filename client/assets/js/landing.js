@@ -77,20 +77,36 @@ $(document).ready(function () {
         let colorway = shoe.Products[i].colorway;
         let msrp = shoe.Products[i].retailPrice;
         let mV = shoe.Products[i].market.lastSale;
-        let img = shoe.Products[i].media.smallImageUrl;
-        $("#result").append(`
-              <div>
-                      <h2>
-                      ${year} ${gender} ${brand}: ${name}
-                      </h2>
-                      <h4>
-                        ${PID} - ${formatter.format(msrp)}
-                      </h4>
-                      <h3> ${colorway}</h3>
-                      <h3> Current Value: ${formatter.format(mV)}</h3>
-                      <img src="${img}" alt="" />
-                    </div>
-              `);
+        let timg = shoe.Products[i].media.thumbUrl;
+        $("#result").append(
+          `
+          <div class="col s12 m3">
+          <div id="content" class="card-panel center-align">
+                          <div class="card-title">
+                            ${brand}: ${name} (${gender})
+                          </div>
+                          <div class="card-image small"><img src="${timg}" alt="" /></div>
+                          <div class="color">${colorway}</div>
+                          <div class="pid">${PID}</div>
+                          <div class="year">
+                            ${year} | MRSP: ${formatter.format(msrp)}
+                          </div>
+                          <div class="mv">Current Value: ${formatter.format(
+                            mV
+                          )}</div>
+                          <div class=" ">
+                            <button
+                              id="addBtn"
+                              data-id="${i}"
+                              class="btn waves-effect btn-flt green"
+                            >
+                              <i class="material-icons left"> add_circle_outline </i>Add
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+              `
+        );
       }
     });
   }
