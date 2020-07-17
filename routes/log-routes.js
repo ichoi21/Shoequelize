@@ -4,6 +4,7 @@ const {
   newShoe,
   getUserLogs,
   getAllShoes,
+  deleteShoes,
 } = require("../controllers/log-controller");
 
 // Get all coffee logs
@@ -23,5 +24,7 @@ router.get("/logs/user", getUserLogs);
 // Type: POST
 
 router.post("/shoe/new", newShoe);
+
+router.delete("/shoes/:id", deleteShoes);
 
 module.exports = router;
