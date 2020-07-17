@@ -30,3 +30,16 @@ main {
 .sidenav {
   background-color: rgba(0, 128, 90, 0.65);
 }
+
+.column {
+  float: left !important;
+  width: 33.33% !important;
+  padding: 5px !important;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "" !important;
+  clear: both !important;
+  display: table !important;
+}
