@@ -8,6 +8,10 @@ $(document).ready(function () {
     currency: "USD",
   });
 
+  $("#shoeCollection").on("click", () => {
+    window.location.href = "/collection";
+  });
+
   $(document).on("click", "#addBtn", function (e) {
     e.preventDefault();
     const index = $(this).attr("data-id");
@@ -101,6 +105,7 @@ $(document).ready(function () {
       });
     });
   };
+
   const addShoe = (shoeObj) => {
     return new Promise((resolve, reject) => {
       $.ajax({
