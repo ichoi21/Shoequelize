@@ -42,7 +42,7 @@ module.exports = {
     }
   },
 
-  getAllLogs: async (req, res) => {
+  getAllShoes: async (req, res) => {
     try {
       const allShoes = await db.Shoe.findAll({});
       res.send(allShoes);
