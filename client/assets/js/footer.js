@@ -18,7 +18,6 @@ $(document).ready(function () {
         <span style="font-size: 36px; color: White;">
         <i class="fab fa-instagram"></i></span></a></span>
       </div>
-
       <div class="col s12 m3 l4">
         <h6 class="white-text">ABOUT US</h6>
         <p class="white-text text-lighten-1">About Shoequelize</p> 
@@ -38,43 +37,14 @@ $(document).ready(function () {
     
     </ul>
     </div>
-
-
-    <div class="container pink darken-4 white-text text-lighten-1">
-    <ul>
-    <li>ABOUT US</li>
-    <li><a href="">About Shoequelize</a></li>
-    <li><a href=""></a>Press</li>
-    <li><a href=""></a>Our collections</li>
-    <li><a href=""></a>Contact us</li>
-    </ul>
-    </div>
-
-    <div class="container pink darken-4 white-text text-lighten-1">
-    <ul>
-    <li>HELP</li>
-    <li><a href=""></a>Account</li>
-    <li><a href=""></a>Product guidelines</li>
-    <li><a href=""></a>Billing & payments</li>
-    <li><a href=""></a>Reviews</li>
-    </ul>
-    </div>
-
-
-      <div class="col s12 m3 l4">
-        <h6 class="white-text">HELP</h6>
-        <p class="white-text text-lighten-1">Account</p>  
-        <p class="white-text text-lighten-1">Shipping</p>       
-        <p class="white-text text-lighten-1">Billing & payments</p>
-        <p class="white-text text-lighten-1">Product guidelines</p>
-      </div>
-    </div>
+    </footer>
+  
     <div class="footer-copyright pink lighten-5">
       <div class="row">
         <p class="blue-grey-text dark"> © 2020 Shoequelize, All rights reserved.</p>
       </div>
     </div>
-    </footer>
+    
   `
   );
 });
