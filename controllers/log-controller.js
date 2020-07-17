@@ -42,12 +42,29 @@ module.exports = {
     }
   },
 
-  getAllLogs: async (req, res) => {
+  getAllShoes: async (req, res) => {
     try {
       const allShoes = await db.Shoe.findAll({});
       res.send(allShoes);
     } catch (err) {
       res.send({ err_message: err });
+    }
+  },
+
+  deleteShoes: async (req, res) => {
+    if (req.user) {
+      try {
+        const userShoe = await db.Shoe.destroy({
+          where: {
+            id: req.params.id,
+          },
+        });
+        res.send(userShoe);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
     }
   },
 };

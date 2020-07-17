@@ -32,6 +32,10 @@ $(document).ready(function () {
   );
 });
 
+$(document).ready(function () {
+  $(".sidenav").sidenav();
+});
+
 /* OLD NAV BAR CODE */
 /* <div class="nav-wrapper green lighten-2">
   <a href="#" class="brand-logo">
