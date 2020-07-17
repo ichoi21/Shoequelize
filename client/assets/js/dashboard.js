@@ -125,6 +125,9 @@ $(document).ready(function () {
     }, 2000);
   }
 });
+$(document).ready(function () {
+  $("select").formSelect();
+});
 
 // const renderLogs = () => {
 //   return new Promise((resolve, reject) => {
