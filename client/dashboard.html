@@ -12,25 +12,27 @@
 
 <body>
   <!-- Beginning of nav -->
-  <nav>
-    <div class="nav-wrapper green lighten-2">
-      <div class="row">
-        <div class="col sm-12">
-          <a id="shoequelize" href="#!" class="brand-logo">Shoe<span class="deep-orange-text">q<span
-                class="yellow-text">u</span>e</span>lize</a>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper green lighten-2">
+        <div class="row">
+          <div class="col sm-12">
+            <a id="shoequelize" href="#!" class="brand-logo">Shoe<span class="deep-orange-text">q<span
+                  class="yellow-text">u</span>e</span>lize</a>
+          </div>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a id="shoeCollection" href="#!"><i class="material-icons right">assignment</i>Collection</a>
+            </li>
+            <li>
+              <a class="logoutBtn" href="/auth/logout"><i class="material-icons right">exit_to_app</i>Logout</a>
+            </li>
+          </ul>
         </div>
-        <ul class="right hide-on-med-and-down">
-          <li>
-            <a id="shoeCollection" href="#!"><i class="material-icons right">assignment</i>Collection</a>
-          </li>
-          <li>
-            <a class="logoutBtn" href="/auth/logout"><i class="material-icons right">exit_to_app</i>Logout</a>
-          </li>
-        </ul>
+        <div id="alert" class=""></div>
       </div>
-      <div id="alert" class=""></div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 
   <!-- expandable side nav -->
   <ul class="sidenav" id="mobile-demo">
