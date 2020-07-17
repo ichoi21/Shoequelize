@@ -27,6 +27,7 @@ $(document).ready(function () {
       </ul>
     </div>
     </div>
+
   `
   );
 });
