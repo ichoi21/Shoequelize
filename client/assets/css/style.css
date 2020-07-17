@@ -43,3 +43,7 @@ main {
   clear: both !important;
   display: table !important;
 }
+
+.dark {
+  color: rgb(24, 23, 23) !important;
+}
