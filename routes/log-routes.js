@@ -3,14 +3,14 @@ const router = express.Router();
 const {
   newShoe,
   getUserLogs,
-  getAllLogs,
+  getAllShoes,
 } = require("../controllers/log-controller");
 
 // Get all coffee logs
 // Route: http://localhost:3000/logs/all
 // Type: GET
 
-router.get("/logs/all", getAllLogs);
+router.get("/logs/all", getAllShoes);
 
 // Get all user coffee logs
 // Route: http://localhost:3000/logs/user
