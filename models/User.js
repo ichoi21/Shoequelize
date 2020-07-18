@@ -2,6 +2,11 @@ const bcrypt = require("bcryptjs");
 
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define("User", {
+    alias: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -10,6 +15,11 @@ module.exports = function (sequelize, DataTypes) {
 
     password: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    shoeSize: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   });

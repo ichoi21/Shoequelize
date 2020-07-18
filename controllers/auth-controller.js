@@ -16,7 +16,7 @@ module.exports = {
 
       res.redirect(307, "/auth/login");
     } catch (err) {
-      res.stats(401).json(err);
+      res.status(401).json(err);
     }
   },
 
@@ -30,10 +30,14 @@ module.exports = {
       try {
         const user = await db.User.findOne({
           where: { id: req.user.id },
-          include: [db.Profile, db.Shoe],
+          include: [db.User, db.Shoe],
         });
 
-        res.send({ email: user.email, profile: user.Profile, log: user.Logs });
+        res.send({
+          email: user.email,
+          alias: user.alias,
+          shoeSize: user.shoeSize,
+        });
       } catch (err) {
         res.send({ err_msg: err });
       }
