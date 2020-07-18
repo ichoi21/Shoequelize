@@ -1,6 +1,8 @@
+// const { formatter, stockx } = require("../js/lib");
+
 $(document).ready(function () {
-  $(".parallax").parallax();
-  $(".sidenav").sidenav();
+  // $(".parallax").parallax();
+  // $(".sidenav").sidenav();
 
   const loginModal = document.getElementById("loginModal");
   const loginModalInstance = M.Modal.init(loginModal, { dismissible: true });
@@ -160,11 +162,3 @@ const registerUser = (userObj) => {
     );
   });
 };
-
-$(document).ready(function () {
-  $(".carousel").carousel();
-});
-
-$(document).ready(function () {
-  $("select").formSelect();
-});

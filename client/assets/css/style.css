@@ -13,8 +13,8 @@ input {
   color: teal;
 }
 
-.placeholder {
-  color: teal;
+.modal-fit-content {
+  width: 500px;
 }
 
 .special-font {

@@ -1,12 +1,9 @@
+// const { formatter, stockx } = require("../js/lib");
+
 $(document).ready(function () {
   stockx();
 
   let resultContainer = [];
-
-  var formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
 
   $("#shoeCollection").on("click", () => {
     window.location.href = "/collection";
@@ -124,9 +121,6 @@ $(document).ready(function () {
       $("#alert").hide();
     }, 2000);
   }
-});
-$(document).ready(function () {
-  $("select").formSelect();
 });
 
 // const renderLogs = () => {
