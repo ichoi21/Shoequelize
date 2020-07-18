@@ -25,6 +25,6 @@ router.get("/logs/user", getUserLogs);
 
 router.post("/shoe/new", newShoe);
 
-router.delete("/shoes/:id", deleteShoes);
+router.delete("/shoe/delete/:id", deleteShoes);
 
 module.exports = router;
