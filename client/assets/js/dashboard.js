@@ -15,10 +15,12 @@ $(document).ready(function () {
   $(document).on("click", "#addBtn", function (e) {
     e.preventDefault();
     const index = $(this).attr("data-id");
+
     const newShoes = {
       year: resultContainer[index].year,
       brand: resultContainer[index].brand,
       PID: resultContainer[index].PID,
+      name: resultContainer[index].name,
       gender: resultContainer[index].gender,
       color: resultContainer[index].colorway,
       msrp: resultContainer[index].msrp,
@@ -26,8 +28,9 @@ $(document).ready(function () {
       market_value: resultContainer[index].mV,
       timg: resultContainer[index].timg,
     };
+    console.log(newShoes);
     showAlert("Shoes saved to Collection!", "teal lighten-2");
-    addShoe(newShoes).then(() => console.log(resultContainer[index].year));
+    addShoe(newShoes).then(() => console.log({ msg: "shoe added!" }));
   });
 
   function stockx() {
