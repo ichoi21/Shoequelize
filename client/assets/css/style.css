@@ -9,6 +9,14 @@ main {
   flex: 1 0 auto;
 }
 
+input {
+  color: teal;
+}
+
+.placeholder {
+  color: teal;
+}
+
 .special-font {
   font-family: Arial, Helvetica, sans-serif;
 }

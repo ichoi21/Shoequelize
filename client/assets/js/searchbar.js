@@ -6,14 +6,15 @@ $(document).ready(function () {
     <div id="searchBar" class="card">
       <form class="light-green lighten-5">
         <div class="row">
-          <div class="col s10 m2 offset-m1">
-            <input type="text" id="query" placeholder="  Shoe Name" />
+          <div class="col s10 m2 offset-m2">
+            <div class="input-field">
+              <input type="text" id="query" data-length="30" />
+              <label for="query">Shoe Name</label>
+            </div>
           </div>
-          <div class="col s10 m3">
+          <div class="col s10 m2">
             <select class="icons" id="shoeBrand">
-              <option value="" disabled selected
-                >Choose your Brand</option
-              >
+              <option value="" disabled selected>Brand</option>
               <option
                 value="Nike"
                 data-icon="./assets/img/icons/icon_nike.png"
@@ -48,7 +49,10 @@ $(document).ready(function () {
           </div>
 
           <div class="col s10 m1">
-            <input type="text" id="shoeYr" placeholder="  Year" />
+            <div class="input-field">
+              <input type="text" id="shoeYr" data-length="4" />
+              <label for="shoeYr">Shoe Year</label>
+            </div>
           </div>
           <div class="col s10 m2">
             <select id="shoeGdr">
@@ -78,6 +82,7 @@ $(document).ready(function () {
         </div>
       </form>
     </div>
+  </div>
     </div>
   `
   );
