@@ -54,12 +54,12 @@ module.exports = {
   deleteShoes: async (req, res) => {
     if (req.user) {
       try {
-        const userShoe = await db.Shoe.destroy({
+        await db.Shoe.destroy({
           where: {
             id: req.params.id,
           },
         });
-        res.send(userShoe);
+        res.send({ msg: "shoes deleted!" });
       } catch (err) {
         res.send({ err_message: err });
       }

@@ -45,7 +45,7 @@ $(document).ready(function () {
                             </button>
                             <button
                             id="deleteBtn"
-                            data-id="${i}"
+                            data-id="${shoes[i].id}"
                             class="btn waves-effect btn-flt red"
                           >
                             <i class="material-icons left"> add_circle_outline </i>Delete
@@ -55,5 +55,13 @@ $(document).ready(function () {
                       </div>
             `);
     }
+  });
+
+  $(document).on("click", "#deleteBtn", function () {
+    const shoeId = $(this).attr("data-id");
+    $.ajax({
+      type: "DELETE",
+      url: `/shoe/delete/${shoeId}`,
+    }).then(() => console.log({ msg: "Shoe Deleted!" }));
   });
 });
