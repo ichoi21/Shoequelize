@@ -6,6 +6,9 @@ $(document).ready(function () {
   const deleteModal = document.getElementById("deleteModal");
   const deleteModalInstance = M.Modal.init(deleteModal, { dismissible: true });
 
+  const editModal = document.getElementById("editModal");
+  const editModalInstance = M.Modal.init(editModal, { dismissible: true });
+
   var formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -59,12 +62,17 @@ $(document).ready(function () {
 
   $(document).on("click", "#cancelDelete", () => {
     deleteModalInstance.close();
+    editModalInstance.close();
   });
 
   $(document).on("click", "#deleteBtn", function () {
     deleteModalInstance.open();
     const shoeId = $(this).attr("data-id");
     delShoes(shoeId).then(() => location.replace("/collection"));
+  });
+
+  $(document).on("click", "#editBtn", function () {
+    editModalInstance.open();
   });
 
   const delShoes = (id) => {
