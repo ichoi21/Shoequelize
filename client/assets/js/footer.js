@@ -6,7 +6,8 @@ $(document).ready(function () {
       <div class="row container">
 
       <div class="column">
-      <h6>FOLLOW US</h6>
+      <h6 id="followus">FOLLOW US</h6>
+
     <ul id="social" style="list-style-type:none; font-size:27px; display:inline; margin-right:20px">
     <li><i class="fab fa-twitter"></i></li>
     <li><i class="fab fa-facebook"></i></li>
@@ -15,22 +16,23 @@ $(document).ready(function () {
     </ul>
     </div>
 
-      <div class="col s12 m3 l4 column">
-        <h6 class="white-text">GET HELP</h6>
-        <p class="white-text text-lighten-1">Home</p> 
-        <p class="white-text text-lighten-1">Login</p>         
-        <p class="white-text text-lighten-1">Help</p>
-        <p class="white-text text-lighten-1">Sell</p>
-      </div>
+    <div class="col s12 m3 l4 column"
+    <h6>GET HELP</h6>
+    <ul id="help" style="list-style-type:none white-text ">
+    <li><a href="http://127.0.0.1:5501/client/landing.html">Home</a></li>
+    <li><a href="http://127.0.0.1:5501/client/dashboard.html">Login</a></li> 
+    <li><a href="http://127.0.0.1:5501/client/help.html">Contact us</a></li>
+    </ul>
+    </div>
 
-      <div class="col s12 m3 l4 column">
-        <h6 class="white-text">ABOUT US</h6>
-        <p class="white-text text-lighten-1">About Shoequelize</p> 
-        <p class="white-text text-lighten-1">Press</p>         
-        <p class="white-text text-lighten-1">Our collections</p>
-        <p class="white-text text-lighten-1">Contact us</p>
-      </div>
-<div>
+    <div class="col s12 m3 l4 column"
+    <h6>ABOUT US</h6>
+    <ul id="help" style="list-style-type:none white-text ">
+    <li><a href="http://127.0.0.1:5501/client/about.html">About Shoequelize</a></li>
+    <li><a href="http://127.0.0.1:5501/client/press.html">Press</a></li> 
+    <li><a href="http://127.0.0.1:5501/collection">Our collection</a></li>
+    </ul>
+    </div>
 <br>
 <br>
 </footer>
