@@ -15,6 +15,7 @@ module.exports = {
           image: req.body.image,
           market_value: req.body.market_value,
           timg: req.body.timg,
+          comment: req.body.comment,
           UserId: req.user.id,
         });
         res.send(newShoe);

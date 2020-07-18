@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $("select").formSelect();
+  $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
 
@@ -62,10 +64,12 @@ $(document).ready(function () {
       shoeBrand = $("#shoeBrand").val();
       shoeYr = $("#shoeYr").val();
       shoeGdr = $("#shoeGdr").val();
-      console.log(shoeBrand, shoeYr, query, shoeGdr);
-      stockXSearch();
+      query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
+        ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
+        : stockXSearch();
     });
   }
+
   function stockXSearch() {
     $.ajax({
       type: "GET",
@@ -114,6 +118,24 @@ $(document).ready(function () {
       }
     });
   }
+
+  showAlert = (str, type) => {
+    $("#alert").show();
+    $("#alert").attr("class", `m6 s12 card-panel ${type}`);
+    $("#alert").text(str);
+    window.setTimeout(function () {
+      $("#alert").hide();
+    }, 2000);
+  };
+
+  emptyField = (func) => {
+    $("#result").html("");
+    $("#query").val("");
+    $("#shoeBrand").val("");
+    $("#shoeYr").val("");
+    $("#shoeGdr").val("");
+    func;
+  };
 });
 
 {
@@ -160,11 +182,3 @@ const registerUser = (userObj) => {
     );
   });
 };
-
-$(document).ready(function () {
-  $(".carousel").carousel();
-});
-
-$(document).ready(function () {
-  $("select").formSelect();
-});
