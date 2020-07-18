@@ -20,13 +20,8 @@ $(document).ready(function () {
   }).then((shoes) => {
     console.log(shoes);
     for (let i = 0; i < shoes.length; i++) {
-<<<<<<< HEAD
-      $("#result").prepend(`
-      <div class="col s12 m3">
-=======
       $("#collection").append(`
       <div class="col s12 m4 l4">
->>>>>>> 0ab199da4eaff0a2a2efd3ddc94f64b0f2786f2a
           <div id="content" class="card-panel center-align">
                           <div class="card-title" style="font-weight: bold; font-size: large;">
                             ${shoes[i].name} (${shoes[i].gender})

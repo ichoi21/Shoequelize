@@ -22,9 +22,13 @@ $(document).ready(function () {
   $("#registerForm").on("submit", function (e) {
     e.preventDefault();
     const newUser = {
+      alias: $("#registerAlias").val().trim(),
       email: $("#registerEmail").val().trim(),
       password: $("#registerPassword").val().trim(),
+      shoeSize: $("#registerSize").val().trim(),
     };
+    console.log(newUser.alias + newUser.shoeSize);
+
     registerUser(newUser).then(() => location.replace("/"));
   });
 
