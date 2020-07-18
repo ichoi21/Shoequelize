@@ -17,23 +17,20 @@ $(document).ready(function () {
   }).then((shoes) => {
     console.log(shoes);
     for (let i = 0; i < shoes.length; i++) {
-      $("#result").append(`
-      <div class="col s12 m3">
+      $("#collection").append(`
+      <div class="col s12 m4 l4">
           <div id="content" class="card-panel center-align">
-                          <div class="card-title">
-                            ${shoes[i].brand}: ${shoes[i].name} (${
-        shoes[i].gender
-      })
+                          <div class="card-title" style="font-weight: bold; font-size: large;">
+                            ${shoes[i].name} (${shoes[i].gender})
                           </div>
-                          <div class="card-image small"><img src="${
+                          <div class="card-image"><img src="${
                             shoes[i].timg
-                          }" alt="" /></div>
+                          }" alt="" width="150"/></div>
                           <div class="color">${shoes[i].color}</div>
                           <div class="pid">${shoes[i].PID}</div>
-                          <div class="year">
-                            ${shoes[i].year} | MRSP: ${
-        shoes[i].PID
-      } - ${formatter.format(shoes[i].msrp)}
+                          <div class="year">${
+                            shoes[i].year
+                          } | MRSP: ${formatter.format(shoes[i].msrp)}
                           </div>
                           <div class="mv">Current Value: ${formatter.format(
                             shoes[i].market_value
@@ -80,4 +77,8 @@ $(document).ready(function () {
       });
     });
   };
+});
+
+$(document).ready(function () {
+  $("select").formSelect();
 });
