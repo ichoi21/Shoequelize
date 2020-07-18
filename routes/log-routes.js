@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {
   newShoe,
-  getUserLogs,
+  findShoe,
   getAllShoes,
   deleteShoes,
 } = require("../controllers/log-controller");
@@ -17,7 +17,7 @@ router.get("/logs/all", getAllShoes);
 // Route: http://localhost:3000/logs/user
 // Type: GET
 
-router.get("/logs/user", getUserLogs);
+router.post("/shoes/find/:name", findShoe);
 
 // Create a new user log
 // Route: http://localhost:3000/shoe/new
