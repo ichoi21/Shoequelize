@@ -27,23 +27,6 @@ module.exports = {
     }
   },
 
-  getUserLogs: async (req, res) => {
-    if (req.user) {
-      try {
-        const userShoe = await db.Shoe.findAll({
-          where: {
-            UserId: req.user.id,
-          },
-        });
-        res.send(userShoe);
-      } catch (err) {
-        res.send({ err_message: err });
-      }
-    } else {
-      res.redirect("/");
-    }
-  },
-
   getAllShoes: async (req, res) => {
     if (req.user) {
       try {
@@ -61,12 +44,30 @@ module.exports = {
     }
   },
 
+  findShoe: async (req, res) => {
+    if (req.user) {
+      try {
+        const foundShoe = await db.Shoe.findOne({
+          where: {
+            PID: req.params.PID,
+          },
+        });
+        res.send(foundShoe);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
+    }
+  },
+
   deleteShoes: async (req, res) => {
     if (req.user) {
       try {
         await db.Shoe.destroy({
           where: {
             id: req.params.id,
+            UserId: req.user.id,
           },
         });
         res.send({ msg: "shoes deleted!" });
