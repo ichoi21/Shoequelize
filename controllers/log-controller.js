@@ -44,11 +44,19 @@ module.exports = {
   },
 
   getAllShoes: async (req, res) => {
-    try {
-      const allShoes = await db.Shoe.findAll({});
-      res.send(allShoes);
-    } catch (err) {
-      res.send({ err_message: err });
+    if (req.user) {
+      try {
+        const allShoes = await db.Shoe.findAll({
+          where: {
+            UserId: req.user.id,
+          },
+        });
+        res.send(allShoes);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
     }
   },
 
