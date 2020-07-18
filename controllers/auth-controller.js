@@ -11,7 +11,7 @@ module.exports = {
         alias: req.body.alias,
         email: req.body.email,
         password: req.body.password,
-        shoeSize: req.body.size,
+        shoeSize: req.body.shoeSize,
       });
 
       res.redirect(307, "/auth/login");
