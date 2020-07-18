@@ -55,3 +55,8 @@ input {
 .dark {
   color: rgb(24, 23, 23) !important;
 }
+
+#searchBar.card {
+  opacity: 80%;
+  /* background-color: rgba(91, 147, 211, 0.671); */
+}

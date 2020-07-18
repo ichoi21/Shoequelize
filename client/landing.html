@@ -26,6 +26,12 @@
         <form id="registerForm">
           <div class="row">
             <div class="input-field col s12">
+              <input id="registerAlias" type="alias" class="validate" />
+              <label for="alias">Alias</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
               <input id="registerEmail" type="email" class="validate" />
               <label for="email">Email</label>
             </div>
@@ -34,6 +40,12 @@
             <div class="input-field col s12">
               <input id="registerPassword" type="password" class="validate" />
               <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="registerSize" type="shoeSize" class="validate" />
+              <label for="shoeSize">Shoe Size</label>
             </div>
           </div>
 
@@ -59,7 +71,7 @@
     </div>
 
     <div id="loginModal" class="modal light-green lighten-5">
-      <div class="modal-content">
+      <div class="modal-content m6 l4">
         <h4>Shoe Collectors</h4>
         <p>Login to access your collection!</p>
         <form id="loginForm">
@@ -150,17 +162,17 @@
         <div class="row"></div>
         <div class="row"></div>
         <div class="row" id="searchBar">
-          <div class="col s12 m10 offset-m1">
-            <div id="searchBar" class="card">
+          <div class="col s12 m10 l6 offset-l3 offset-m1">
+            <div class="card">
               <form class="light-green lighten-5">
-                <div class="row">
-                  <div class="col s10 m2 offset-m2">
+                <div class="row green lighten-3">
+                  <div class="col s10 m2 l3 offset-m2 offset-l1">
                     <div class="input-field">
                       <input type="text" id="query" data-length="30" />
                       <label for="query">Shoe Name</label>
                     </div>
                   </div>
-                  <div class="col s10 m2">
+                  <div class="col input-field s10 m2 l3">
                     <select class="icons" id="shoeBrand">
                       <option value="" disabled selected>Brand</option>
                       <option
@@ -196,13 +208,11 @@
                     </select>
                   </div>
 
-                  <div class="col s10 m1">
-                    <div class="input-field">
-                      <input type="text" id="shoeYr" data-length="4" />
-                      <label for="shoeYr">Shoe Year</label>
-                    </div>
+                  <div class="col input-field s10 m1 l1">
+                    <input type="text" id="shoeYr" data-length="4" />
+                    <label for="shoeYr">Year</label>
                   </div>
-                  <div class="col s10 m2">
+                  <div class="col input-field s10 m2 l1">
                     <select id="shoeGdr">
                       <option value="" disabled selected>Gender</option>
                       <option value="men">Men</option>
@@ -212,10 +222,7 @@
                       <option value="big kids">Big Kids</option>
                     </select>
                   </div>
-                  <div
-                    class="col s10 m3"
-                    style="margin-bottom: 10px; margin-top: 10px;"
-                  >
+                  <div class="col s10 m3" style="margin-top: 20px;">
                     <button
                       type="button"
                       id="btnSearch"
@@ -240,7 +247,12 @@
           />
         </div>
       </div>
-      <div class="container" id="result"></div>
+      <div class="container">
+        <table class="striped highlight">
+          <thead id="result_th"></thead>
+          <tbody id="result"></tbody>
+        </table>
+      </div>
 
       <div class="carousel cyan lighten-5">
         <a class="carousel-item" href="#one!"

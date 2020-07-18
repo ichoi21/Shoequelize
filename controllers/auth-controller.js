@@ -8,8 +8,10 @@ module.exports = {
   register: async (req, res) => {
     try {
       await db.User.create({
+        alias: req.body.alias,
         email: req.body.email,
         password: req.body.password,
+        shoeSize: req.body.size,
       });
 
       res.redirect(307, "/auth/login");

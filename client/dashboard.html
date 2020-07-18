@@ -49,17 +49,17 @@
       <div class="row">
         <!-- <div class="row" id="searchBar"></div> -->
         <div class="row" id="searchBar">
-          <div class="col s12 m10 offset-m1">
-            <div id="searchBar" class="card">
+          <div class="col s12 m10 l8 offset-l2 offset-m1">
+            <div class="card">
               <form class="light-green lighten-5">
-                <div class="row">
-                  <div class="col s10 m2 offset-m2">
+                <div class="row green lighten-3">
+                  <div class="col s10 m2 l3 offset-m2 offset-l1">
                     <div class="input-field">
                       <input type="text" id="query" data-length="30" />
                       <label for="query">Shoe Name</label>
                     </div>
                   </div>
-                  <div class="col s10 m2">
+                  <div class="col input-field s10 m2 l2">
                     <select class="icons" id="shoeBrand">
                       <option value="" disabled selected>Brand</option>
                       <option
@@ -95,13 +95,11 @@
                     </select>
                   </div>
 
-                  <div class="col s10 m1">
-                    <div class="input-field">
-                      <input type="text" id="shoeYr" data-length="4" />
-                      <label for="shoeYr">Year</label>
-                    </div>
+                  <div class="col input-field s10 m1 l2">
+                    <input type="text" id="shoeYr" data-length="4" />
+                    <label for="shoeYr">Year</label>
                   </div>
-                  <div class="col s10 m2">
+                  <div class="col input-field s10 m2 l1">
                     <select id="shoeGdr">
                       <option value="" disabled selected>Gender</option>
                       <option value="men">Men</option>
@@ -111,10 +109,7 @@
                       <option value="big kids">Big Kids</option>
                     </select>
                   </div>
-                  <div
-                    class="col s10 m3"
-                    style="margin-bottom: 10px; margin-top: 10px;"
-                  >
+                  <div class="col s10 m3" style="margin-top: 20px;">
                     <button
                       type="button"
                       id="btnSearch"
@@ -130,66 +125,13 @@
               </form>
             </div>
           </div>
-          </div>
-        <!-- <div class="col s12 m9 offset-s2" id="result"> -->
-        <div class="container" id="result">
-          <div class="row">
-            <div class="col s12 m4">
-              <div id="content" class="card center-align">
-                <div class="cardTitle">
-                  ${data.brand}: ${data.name} (${data.gender})
-                </div>
-                <div class="shoeImg">
-                  <img src="${
-                    data.timg
-                  }" alt="" />
-                </div>
-                <div class="color">${data.colorway}</div>
-                <div class="pid">${data.PID}</div>
-                <div class="year">
-                  ${data.year} | MRSP: ${ data.PID } -
-                  ${formatter.format(data.msrp)}
-                </div>
-                <div class="mv">
-                  Current Value: ${formatter.format( data.mV )}
-                </div>
-                <div class=" ">
-                  <button id="addBtn" data-id="${i}" class="btn waves-effect btn-flt green">
-                    <i class="material-icons left"> add_circle_outline </i>Add
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col s12 m4">
-              <div id="content" class="card center-align">
-                <div class="cardTitle">
-                  ${data.brand}: ${data.name} (${data.gender})
-                </div>
-                <div class="shoeImg">
-                  <img src="${
-                    data.timg
-                  }" alt="" />
-                </div>
-                <div class="color">${data.colorway}</div>
-                <div class="pid">${data.PID}</div>
-                <div class="year">
-                  ${data.year} | MRSP: ${ data.PID } -
-                  ${formatter.format(data.msrp)}
-                </div>
-                <div class="mv">
-                  Current Value: ${formatter.format( data.mV )}
-                </div>
-                <div class=" ">
-                  <button id="addBtn" data-id="${i}" class="btn waves-effect btn-flt green">
-                    <i class="material-icons left"> add_circle_outline </i>Add
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- </div> -->
+        <div class="container" id="result">
+          <h3>Your current collection!</h3>
+          <div id="collection" style="font-size: ;">
+            <table></table>
+            </div>
+        </div>
   </main>
 
   <!-- Begin footer -->
@@ -201,6 +143,7 @@
   <script src="./assets/js/dashboard.js"></script>
   <!-- <script src="./assets/js/searchbar.js"></script> -->
   <!-- <script src="./assets/js/nav.js"></script> -->
+  <script src="./assets/js/collection.js"></script>
   <script src="./assets/js/footer.js"></script>
 </body>
 
