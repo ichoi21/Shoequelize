@@ -3,6 +3,9 @@ $(document).ready(function () {
     window.location.href = "/dashboard";
   });
 
+  const deleteModal = document.getElementById("deleteModal");
+  const deleteModalInstance = M.Modal.init(deleteModal, { dismissible: true });
+
   var formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -41,14 +44,14 @@ $(document).ready(function () {
                               data-id="${i}"
                               class="btn waves-effect btn-flt blue"
                             >
-                              <i class="material-icons left"> add_circle_outline </i>Edit
+                              <i class="material-icons left"> edit </i>Edit
                             </button>
                             <button
                             id="deleteBtn"
                             data-id="${shoes[i].id}"
                             class="btn waves-effect btn-flt red"
                           >
-                            <i class="material-icons left"> add_circle_outline </i>Delete
+                            <i class="material-icons left"> delete</i>Delete
                           </button>
                           </div>
                         </div>
@@ -57,11 +60,24 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on("click", "#deleteBtn", function () {
-    const shoeId = $(this).attr("data-id");
-    $.ajax({
-      type: "DELETE",
-      url: `/shoe/delete/${shoeId}`,
-    }).then(() => console.log({ msg: "Shoe Deleted!" }));
+  $(document).on("click", "#cancelDelete", () => {
+    deleteModalInstance.close();
   });
+
+  $(document).on("click", "#deleteBtn", function () {
+    deleteModalInstance.open();
+    const shoeId = $(this).attr("data-id");
+    delShoes(shoeId).then(() => location.replace("/collection"));
+  });
+
+  const delShoes = (id) => {
+    return new Promise((resolve, reject) => {
+      $(document).on("click", "#delBtn", function () {
+        $.ajax({
+          type: "DELETE",
+          url: `/shoe/delete/${id}`,
+        }).then(() => resolve({ msg: "Shoe Deleted!" }));
+      });
+    });
+  };
 });
