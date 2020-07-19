@@ -174,7 +174,7 @@ $(document).ready(function () {
       amountShoes = shoes.length;
       $("#collection").append(`
       <div class="col s12 m4 l4">
-      <div id="content" class="card small center-align">
+      <div id="content" class="card small center-align hoverable">
         <div class="card-image waves-effect waves-block waves-light">
           <img
             class="activator"
