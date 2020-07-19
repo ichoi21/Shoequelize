@@ -109,7 +109,7 @@
   <nav>
     <div class="nav-wrapper green lighten-2">
       <div class="row">
-        <div class="col sm-12">
+        <div class="col s12">
           <a id="shoequelize" href="#!" class="brand-logo">Shoe<span class="deep-orange-text">q<span
                 class="yellow-text">u</span>e</span>lize</a>
         </div>
@@ -128,15 +128,18 @@
   </div>
 
   <div class="row">
-    <form class="col s12 m10 l6 offset-l3 offset-m1">
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="searchInput">
+    <div class="col s12 m10 l6 offset-l3 offset-m1">
+    <div class="nav-wrapper transparent">
+      <form>
+        <div class="input-field">
+          <input id="searchBtn" type="search" data-length="50">
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+          <span class="helper-text" style="font-size: smaller;">Search (e.g Yeezy 350)</span>
         </div>
-      </div>
-    </form>
-    <button id="searchBtn">Search</button>
-  </button>
+      </form>
+    </div>
+    </div>
   </div>
 
   <div id="collectionInfo" class="row"></div>

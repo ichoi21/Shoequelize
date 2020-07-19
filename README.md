@@ -10,10 +10,10 @@ Working with a team to develop a full-stack web application, designing and build
 
 ## Team Members
 
-- Ian Choi
-- Shakila Marando
-- Jessica Menius
-- Myhkas Nallas
+- [Ian Choi](https://github.com/ichoi21)
+- [Shakila Marando](https://github.com/shakymary)
+- [Jessica Menius](https://github.com/jessicamenius)
+- [Myhkas Nallas](https://github.com/mnallas)
 
 ## Build status
 
@@ -41,6 +41,7 @@ In development
 - MaterializeCSS
 - Material icons
 - Google Fonts
+- Font Awesome
 - jQuery
 
 ## Tasks and Roles

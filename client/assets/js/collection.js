@@ -1,5 +1,8 @@
 $(document).ready(function () {
   $("select").formSelect();
+  $(".carousel").carousel();
+  $(".parallax").parallax();
+  $(".sidenav").sidenav();
 
   $("#shoequelize").on("click", () => {
     window.location.href = "/dashboard";
