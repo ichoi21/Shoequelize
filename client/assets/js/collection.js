@@ -75,23 +75,52 @@ $(document).ready(function () {
                       </div>
             `);
     }
+
+    function sum(input) {
+      if (toString.call(input) !== "[object Array]") return false;
+
+      var total = 0;
+      for (var i = 0; i < input.length; i++) {
+        if (isNaN(input[i])) {
+          continue;
+        }
+        total += Number(input[i]);
+      }
+      return total;
+    }
+    console.log(
+      sum([collectionWorth, -amountSpent]),
+      Math.floor((collectionWorth / amountSpent) * 100)
+    );
+    let delta = sum([collectionWorth, -amountSpent]);
+    let deltaPercent = Math.floor((delta / amountSpent) * 100);
+
     $("#collectionInfo").append(`
-    <div class="col s12 m12">
-    <h2 class="header">Hello ${userAlias}!</h2>
-    <div class="card horizontal">
-      <div class="card-stacked">
-        <div class="card-content">
-          <h5>Number of shoes collected: ${amountShoes}</h5>
-          <h5>Collection Worth: ${formatter.format(
-            JSON.stringify(collectionWorth)
-          )}</h5>
-          <h5>Amount Spent: ${formatter.format(
-            JSON.stringify(amountSpent * 1.085)
-          )}</h5>
+    <div class="col s12 m12 l12">
+      <h3 class="header" style="font-weight: bold;">Hey there, ${userAlias}!</h3>
+      <div class="card horizontal">
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>No. of shoes collected: ${amountShoes} pairs</h5>
+            <h5>Current Market Value: ${formatter.format(
+              JSON.stringify(collectionWorth)
+            )} USD</h5>
+            <h5>Est. Spent Value: ${formatter.format(
+              JSON.stringify(amountSpent * 1.085)
+            )} USD</h5>
+          </div>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h4>That's a ${formatter.format(
+              JSON.stringify(delta)
+            )} USD difference.</h4>
+            <h5> ~${deltaPercent}% Change</h5>
+          </div>
         </div>
       </div>
     </div>
-  </div>`);
+    `);
   });
 
   $(document).on("click", "#cancelDelete", () => {

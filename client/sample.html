@@ -29,7 +29,7 @@
     <div class="two pink lighten-5">
       <h5 class="blue-grey-text">What Can We Help You With?</h5>
 
-      <div class="container">
+      <!-- <div class="container">
         <img
           src="./assets/img/Untitled design-7.jpg"
           alt="account"
@@ -57,7 +57,7 @@
           width="400"
           height="400"
         />
-      </div>
+      </div> -->
 
       <!-- sample card bodies with add button -->
       <div class="col s12 m9 offset-s2" id="result"></div>
@@ -95,9 +95,46 @@
               </div>
             </div>
           </div>
+
+          <div class="col s12 m4 l4">
+            <div id="content" class="card-panel center-align">
+                            <div class="card-title" style="font-weight: bold; font-size: large;">
+                              ${shoes[i].name} (${shoes[i].gender})
+                            </div>
+                            <div class="card-image"><img src="${
+                              shoes[i].timg
+                            }" alt="" width="150"/></div>
+                            <div class="color">${shoes[i].color}</div>
+                            <div class="pid">${shoes[i].PID}</div>
+                            <div class="year">${
+                              shoes[i].year
+                            } | MRSP: ${formatter.format(shoes[i].msrp)}
+                            </div>
+                            <div class="mv">Current Value: ${formatter.format(
+                              shoes[i].market_value
+                            )}</div>
+                            <div class=" ">
+                              <button
+                                id="editBtn"
+                                data-id="${i}"
+                                class="btn waves-effect btn-flt blue"
+                              >
+                                <i class="material-icons left"> edit </i>Edit
+                              </button>
+                              <button
+                              id="deleteBtn"
+                              data-id="${shoes[i].id}"
+                              class="btn waves-effect btn-flt red"
+                            >
+                              <i class="material-icons left"> delete</i>Delete
+                            </button>
+                            </div>
+                          </div>
+                        </div>
         </div>
       </div>
     </div>
+    
 </div>
 
 <footer class="page-footer pink darken-4"></footer>
