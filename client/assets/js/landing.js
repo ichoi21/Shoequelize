@@ -60,13 +60,14 @@ $(document).ready(function () {
   function stockx() {
     $("#btnSearch").on("click", function (e) {
       e.preventDefault();
+      $("#result_th").html("");
       query = $("#query").val();
       shoeBrand = $("#shoeBrand").val();
       shoeYr = $("#shoeYr").val();
       shoeGdr = $("#shoeGdr").val();
       query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
         ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
-        : stockXSearch(urlApi);
+        : emptyField(stockXSearch());
     });
   }
 
