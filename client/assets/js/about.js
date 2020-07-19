@@ -20,7 +20,7 @@ $(document).on("click", "#btnAbout", function (e) {
       It's that easy. We're Shoenatics ourselves, so we're just trying to provide you with what we believe would turn your collection to the next level!
       </p>
       <br>
-      If you have any suggestions, questions regarding our database and/or API - <a href = "mailto: shoequelize@gmail.com?subject = Feedback&body = Message">reach out to us</a>!
+      If you have any suggestions, questions regarding our database and/or API - <a href = "mailto: shoequelize3@gmail.com?subject = Feedback&body = Message">reach out to us</a>!
       <br>
       <sup>*</sup> Search database is stockX's. We don't take credit to any images and market values. 
       <br>

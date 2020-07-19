@@ -14,17 +14,17 @@ $(document).ready(function () {
         </ul>
         </div>
         <div class="col s12 m3 l4">
-        <h6>SITE MAP</h6>
-        <ul id="help" style="list-style-type:none white-text ">
-          <li><a class="btn-flat" id="#!">Home</a></li>
-          <li><a class="btn-flat" id="btnContact">Contact Us</a></li>
-        </ul>
+          <h6>SITE MAP</h6>
+          <ul id="" style="list-style-type:none white-text ">
+            <li><a class="btn-flat" id="#!">Home</a></li>
+            <li><a class="btn-flat" id="btnContact">Contact Us</a></li>
+          </ul>
         </div>
         <div class="col s12 m3 l4">
-        <h6>ABOUT US</h6>
-        <ul id="help" style="list-style-type:none white-text ">
-          <li><a class="btn-flat" id="btnAbout">About Shoequelize</a></li>
-          <li><a class="btn-flat" id="btnPress">Developer's Press</a></li>
+          <h6>ABOUT US</h6>
+          <ul id="" style="list-style-type:none white-text ">
+            <li><a class="btn-flat" id="btnAbout">About Shoequelize</a></li>
+            <li><a class="btn-flat" id="btnPress">Developer's Press</a></li>
         </ul>
         </div>
       </div>  
