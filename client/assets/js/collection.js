@@ -16,11 +16,24 @@ $(document).ready(function () {
     currency: "USD",
   });
 
+  let collectionWorth = 0;
+  let amountSpent = 0;
+  let amountShoes = 0;
+  let userAlias;
+
+  $.ajax({
+    type: "GET",
+    url: "/auth/user",
+  }).then((res) => (userAlias = res.alias));
+
   $.ajax({
     type: "GET",
     url: "/logs/all",
   }).then((shoes) => {
     for (let i = 0; i < shoes.length; i++) {
+      collectionWorth += parseInt(shoes[i].market_value);
+      amountSpent += parseInt(shoes[i].msrp);
+      amountShoes = shoes.length;
       $("#collection").append(`
       <div class="col s12 m4 l4">
           <div id="content" class="card-panel center-align">
@@ -59,6 +72,23 @@ $(document).ready(function () {
                       </div>
             `);
     }
+    $("#collectionInfo").append(`
+    <div class="col s12 m12">
+    <h2 class="header">Hello ${userAlias}!</h2>
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5>Number of shoes collected: ${amountShoes}</h5>
+          <h5>Collection Worth: ${formatter.format(
+            JSON.stringify(collectionWorth)
+          )}</h5>
+          <h5>Amount Spent: ${formatter.format(
+            JSON.stringify(amountSpent * 1.085)
+          )}</h5>
+        </div>
+      </div>
+    </div>
+  </div>`);
   });
 
   $(document).on("click", "#cancelDelete", () => {
