@@ -16,22 +16,22 @@ $(document).ready(function () {
         <div class="col s12 m3 l4">
           <h6>SITE MAP</h6>
           <ul id="" style="list-style-type:none white-text ">
-            <li><a class="btn-flat" id="#!">Home</a></li>
-            <li><a class="btn-flat" id="btnContact">Contact Us</a></li>
+            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text " id="#!">Home</a></li></div>
+            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text" id="btnContact">Contact Us</a></li></div>
           </ul>
         </div>
         <div class="col s12 m3 l4">
           <h6>ABOUT US</h6>
           <ul id="" style="list-style-type:none white-text ">
-            <li><a class="btn-flat" id="btnAbout">About Shoequelize</a></li>
-            <li><a class="btn-flat" id="btnPress">Developer's Press</a></li>
+            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text hoverable" id="btnAbout">About Shoequelize</a></li></div>
+            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text" id="btnPress">Developer's Press</a></li></div>
         </ul>
         </div>
       </div>  
     </div> 
     <div class="footer-copyright pink lighten-5">
       <div class="container flex">
-      <p class="blue-grey-text dark"> © 2020 Shoequelize, All rights reserved.</p>
+      <p class="blue-grey-text dark center-align"> © 2020 Shoequelize, All rights reserved.</p>
       </div>
     </div>
   </footer>  

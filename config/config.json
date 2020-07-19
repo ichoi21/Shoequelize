@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "F@rt0minor",
+    "password": "coding2020",
     "database": "shoes_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
