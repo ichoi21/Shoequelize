@@ -5,6 +5,8 @@ $(document).ready(function () {
   $(".sidenav").sidenav();
   $(".fixed-action-btn").floatingActionButton({ direction: `left` });
 
+  //Initiate functions:
+
   // button to go back to dashboard page
   $("#shoequelize").on("click", () => {
     window.location.href = "/dashboard";
@@ -42,6 +44,7 @@ $(document).ready(function () {
     url: "/shoes/all",
   }).then((shoes) => {
     renderCard(shoes);
+
     const sum = (input) => {
       if (toString.call(input) !== "[object Array]") return false;
 
@@ -59,31 +62,56 @@ $(document).ready(function () {
     let deltaPercent = Math.floor((delta / amountSpent) * 100);
 
     $("#collectionInfo").append(`
-      <div class="col s12 m12 l12">
-        <h3 class="header" style="font-weight: bold;">Hey there, ${userAlias}!</h3>
-        <div class="card horizontal">
-          <div class="card-stacked">
-            <div class="card-content">
-              <h5>No. of shoes collected: ${amountShoes} pairs</h5>
-              <h5>Current Market Value: ${formatter.format(
-                JSON.stringify(collectionWorth)
-              )} USD</h5>
-              <h5>Est. Spent Value: ${formatter.format(
-                JSON.stringify(amountSpent * 1.085)
-              )} USD</h5>
+          <div class="col s12 m12 l12">
+            <h3 class="header" style="font-weight: bold;">Hey there, ${userAlias}!</h3>
+            <div class="card horizontal">
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5>No. of shoes collected: ${amountShoes} pairs</h5>
+                  <h5>Current Market Value: ${formatter.format(
+                    JSON.stringify(collectionWorth)
+                  )} USD</h5>
+                  <h5>Est. Spent Value: ${formatter.format(
+                    JSON.stringify(amountSpent * 1.085)
+                  )} USD</h5>
+                </div>
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h4>That's a ${formatter.format(
+                    JSON.stringify(delta)
+                  )} USD difference.</h4>
+                  <h5> ~${deltaPercent}% Change</h5>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h4>That's a ${formatter.format(
-                JSON.stringify(delta)
-              )} USD difference.</h4>
-              <h5> ~${deltaPercent}% Change</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      `);
+          `);
+  });
+
+  let viewStatus = true;
+  $(document).on("click", "#listView", () => {
+    viewStatus = false;
+    $("#collection").html("");
+    $.ajax({
+      type: "GET",
+      url: "/shoes/all",
+    }).then((shoes) => {
+      renderList(shoes);
+      console.log(viewStatus);
+    });
+  });
+
+  $(document).on("click", "#gridView", () => {
+    viewStatus = true;
+    $("#collection").html("");
+    $.ajax({
+      type: "GET",
+      url: "/shoes/all",
+    }).then((shoes) => {
+      renderCard(shoes);
+      console.log(viewStatus);
+    });
   });
 
   // controls cancel button in each modal
@@ -115,8 +143,13 @@ $(document).ready(function () {
       $("#query").val("");
       if (shoes.length !== 0) {
         $("#collection").html("");
-        renderCard(shoes);
-        showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+        if (viewStatus == false) {
+          renderList(shoes);
+          showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+        } else {
+          renderCard(shoes);
+          showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+        }
       } else {
         showAlert("None found!", "red lighten-2");
       }
@@ -194,6 +227,42 @@ $(document).ready(function () {
         </div>
       </div>
       `);
+    }
+  };
+
+  // appends listView function
+  renderList = (shoes) => {
+    $("#collection").append(
+      `
+        <tr>
+        <th>Name</th>
+        <th>&nbsp;&nbsp;</th>
+        <th>Year</th>
+        <th>Colorway</th>
+        <th>MSRP</th>
+        <th>Market Value</th>
+      </tr>`
+    );
+    for (let i = 0; i < shoes.length; i++) {
+      collectionWorth += parseInt(shoes[i].market_value);
+      amountSpent += parseInt(shoes[i].msrp);
+      amountShoes = shoes.length;
+      $("#collection").append(
+        `
+        <tr>
+        <td>
+          <img src="${shoes[i].timg}" alt="" width="100" height="80" />
+        </td>
+        <td>
+        ${shoes[i].name} <br>
+        ${shoes[i].PID} | ${shoes[i].gender}
+        </td>
+        <td>${shoes[i].year}</td>
+        <td>${shoes[i].color}</td>
+        <td>${formatter.format(shoes[i].msrp)}</td>
+        <td>${formatter.format(shoes[i].market_value)}</td>
+      </tr>`
+      );
     }
   };
 
