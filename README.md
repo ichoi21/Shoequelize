@@ -17,6 +17,9 @@ Working with a team to develop a full-stack web application, designing and build
 
 ## Team Members
 
+[![All Contributors](https://img.shields.io/badge/contributors-4-yellow)](#contributors-)
+[![Honorary Members](https://img.shields.io/badge/honorary-3-brightgreen)](#honorary-)
+
 - [Ian Choi](https://github.com/ichoi21)
 - [Shakila Marando](https://github.com/shakymary)
 - [Jessica Menius](https://github.com/jessicamenius)
@@ -26,43 +29,47 @@ Working with a team to develop a full-stack web application, designing and build
 ## Build status
 
 In development - [GitHub](https://github.com/ichoi21/Shoequelize)
-Deployed - [heroku](https://ic-shoequelize.herokuapp.com)
+Deployed - [heroku](https://shoequelize.herokuapp.com)
 Indepthed detail, please refer to [Developer's Press](add link)
 
 <hr>
 
 ## Packages (back-end)
 
-- HTML/CSS
 - JavaScript/jQuery
 - Node.js
-- bcryptjs
-- dotenv
-- express
-- express-session
-- mysql2
-- passport
-- passport-local
-- sequelize
-- sequelize-cli
+
+```
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.1.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0"
+  },
+```
 
 ## Libraries (front-end)
 
-- MaterializeCSS
-- Material icons
-- Google Fonts
-- Font Awesome
-- jQuery
+- [HTML/CSS](https://w3schools.com)
+- [MaterializeCSS](https://materializecss.com/)
+- [Material icons](https://material.io/)
+- [Google Fonts](https://fonts.google.com/)
+- [Font Awesome](https://fontawesome.com/start)
+- [jQuery](https://code.jquery.com/)
 
 ## Reference USD
 
-- stackoverflow
-- w3schools.com
-- materilizecss.com
-- Google
-- stockx
-- npmjs.com
-- github open source
+- [stackoverflow](https://stackoverflow.com/)
+- [w3schools.com](https://www.w3schools.com/)
+- [Google](www.google.com)
+- [stockx](www.stockx.com)
+- [npmjs.com](https://www.npmjs.com/)
+- [github open source](github.com)
 
 ## Future Development
 
