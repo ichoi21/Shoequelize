@@ -15,26 +15,10 @@ module.exports = {
           image: req.body.image,
           market_value: req.body.market_value,
           timg: req.body.timg,
+          comment: req.body.comment,
           UserId: req.user.id,
         });
         res.send(newShoe);
-      } catch (err) {
-        res.send({ err_message: err });
-      }
-    } else {
-      res.redirect("/");
-    }
-  },
-
-  getUserLogs: async (req, res) => {
-    if (req.user) {
-      try {
-        const userShoe = await db.Shoe.findAll({
-          where: {
-            UserId: req.user.id,
-          },
-        });
-        res.send(userShoe);
       } catch (err) {
         res.send({ err_message: err });
       }
@@ -60,12 +44,48 @@ module.exports = {
     }
   },
 
+  getShoesBrand: async (req, res) => {
+    if (req.user) {
+      try {
+        const brandShoes = await db.Shoe.findAll({
+          where: {
+            brand: req.params.brand,
+            UserId: req.user.id,
+          },
+        });
+        res.send(brandShoes);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
+    }
+  },
+
+  findShoe: async (req, res) => {
+    if (req.user) {
+      try {
+        const foundShoe = await db.Shoe.findOne({
+          where: {
+            PID: req.params.PID,
+          },
+        });
+        res.send(foundShoe);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
+    }
+  },
+
   deleteShoes: async (req, res) => {
     if (req.user) {
       try {
         await db.Shoe.destroy({
           where: {
             id: req.params.id,
+            UserId: req.user.id,
           },
         });
         res.send({ msg: "shoes deleted!" });

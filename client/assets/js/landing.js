@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $("select").formSelect();
+  $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
 
@@ -58,14 +60,17 @@ $(document).ready(function () {
   function stockx() {
     $("#btnSearch").on("click", function (e) {
       e.preventDefault();
+      $("#result_th").html("");
       query = $("#query").val();
       shoeBrand = $("#shoeBrand").val();
       shoeYr = $("#shoeYr").val();
       shoeGdr = $("#shoeGdr").val();
-      console.log(shoeBrand, shoeYr, query, shoeGdr);
-      stockXSearch();
+      query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
+        ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
+        : emptyField(stockXSearch());
     });
   }
+
   function stockXSearch() {
     $.ajax({
       type: "GET",
@@ -76,6 +81,7 @@ $(document).ready(function () {
         `
         <tr>
         <th>Name</th>
+        <th>&nbsp;&nbsp;</th>
         <th>Year</th>
         <th>Colorway</th>
         <th>MSRP</th>
@@ -83,7 +89,7 @@ $(document).ready(function () {
       </tr>
             `
       );
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < shoe.Products.length; i++) {
         let year = shoe.Products[i].year;
         let brand = shoe.Products[i].brand;
         let PID = shoe.Products[i].styleId;
@@ -100,8 +106,8 @@ $(document).ready(function () {
             <img src="${timg}" alt="" width="100" height="80" />
           </td>
           <td>
-           ${name} <br>
-           ${PID} | ${gender}
+          ${name} <br>
+          ${PID} | ${gender}
           </td>
           <td>${year}</td>
           <td>${colorway}</td>
@@ -114,6 +120,24 @@ $(document).ready(function () {
       }
     });
   }
+
+  showAlert = (str, type) => {
+    $("#alert").show();
+    $("#alert").attr("class", `m6 s12 card-panel ${type}`);
+    $("#alert").text(str);
+    window.setTimeout(function () {
+      $("#alert").hide();
+    }, 2000);
+  };
+
+  emptyField = (func) => {
+    $("#result").html("");
+    $("#query").val("");
+    $("#shoeBrand").val("");
+    $("#shoeYr").val("");
+    $("#shoeGdr").val("");
+    func;
+  };
 });
 
 {
@@ -160,11 +184,3 @@ const registerUser = (userObj) => {
     );
   });
 };
-
-$(document).ready(function () {
-  $(".carousel").carousel();
-});
-
-$(document).ready(function () {
-  $("select").formSelect();
-});

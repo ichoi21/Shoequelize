@@ -29,7 +29,7 @@
     <div class="two pink lighten-5">
       <h5 class="blue-grey-text">What Can We Help You With?</h5>
 
-      <div class="container">
+      <!-- <div class="container">
         <img
           src="./assets/img/Untitled design-7.jpg"
           alt="account"
@@ -57,7 +57,7 @@
           width="400"
           height="400"
         />
-      </div>
+      </div> -->
 
       <!-- sample card bodies with add button -->
       <div class="col s12 m9 offset-s2" id="result"></div>
@@ -95,12 +95,104 @@
               </div>
             </div>
           </div>
+
+          <div class="col s12 m4 l4">
+            <div id="content" class="card-panel center-align">
+              <div
+                class="card-title"
+                style="font-weight: bold; font-size: large;"
+              >
+                ${shoes[i].name} (${shoes[i].gender})
+              </div>
+              <div class="card-image">
+                <img src="${shoes[i].timg}" alt="" width="150" />
+              </div>
+              <div class="color">${shoes[i].color}</div>
+              <div class="pid">${shoes[i].PID}</div>
+              <div class="year">
+                ${shoes[i].year} | MRSP: ${formatter.format(shoes[i].msrp)}
+              </div>
+              <div class="mv">
+                Current Value: ${formatter.format(shoes[i].market_value)}
+              </div>
+              <div class=" ">
+                <button
+                  id="editBtn"
+                  data-id="${i}"
+                  class="btn waves-effect btn-flt blue"
+                >
+                  <i class="material-icons left"> edit </i>Edit
+                </button>
+                <button
+                  id="deleteBtn"
+                  data-id="${shoes[i].id}"
+                  class="btn waves-effect btn-flt red"
+                >
+                  <i class="material-icons left"> delete</i>Delete
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m4 l4">
+            <div id="content" class="card small center-align">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="${shoes[i].timg}"
+                  alt=""
+                  width="150"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >${shoes[i].name}<i class="material-icons right"
+                    >more_vert</i
+                  ></span
+                >
+                <p><a href="#">This is a link</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >${shoes[i].name}
+                  <i class="material-icons right grey-text">close</i></span
+                >
+                <div class="gender">(${shoes[i].gender})</div>
+                <div class="color">${shoes[i].color}</div>
+                <div class="pid">${shoes[i].PID}</div>
+                <div class="year">${shoes[i].year}</div>
+                  <div class="msrp">
+                    MRSP: ${formatter.format(shoes[i].msrp)}
+                  </div>
+                  <div class="mv">
+                    Current Value: ${formatter.format(shoes[i].market_value)}
+                  </div>
+                  <div class="fixed-action-btn">
+                    <a class="btn-floating btn-large red">
+                      <i class="large material-icons">mode_edit</i>
+                    </a>
+                    <ul>
+                      <li>
+                        <a class="btn-floating red"
+                          ><i class="large material-icons">delete_circle</i></a
+                        >
+                      </li>
+                      <li>
+                        <a class="btn-floating blue"
+                          ><i class="large material-icons">add_comment</i></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-</div>
 
-<footer class="page-footer pink darken-4"></footer>
+    <footer class="page-footer pink darken-4"></footer>
     <!--footer is append from footer.js-->
 
     <!--JavaScript at end of body for optimized loading-->
@@ -110,6 +202,7 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/help.js"></script>
+    <script src="./assets/js/collection.js"></script>
     <script src="./assets/js/navbar.js"></script>
     <script src="./assets/js/footer.js"></script>
   </body>

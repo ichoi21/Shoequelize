@@ -30,7 +30,6 @@ module.exports = {
       try {
         const user = await db.User.findOne({
           where: { id: req.user.id },
-          include: [db.User, db.Shoe],
         });
 
         res.send({

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $("select").formSelect();
+  $(".fixed-action-btn").floatingActionButton();
   stockx();
 
   let resultContainer = [];
@@ -27,6 +29,7 @@ $(document).ready(function () {
       image: resultContainer[index].img,
       market_value: resultContainer[index].mV,
       timg: resultContainer[index].timg,
+      comment: resultContainer[index].comment,
     };
     console.log(newShoes);
     showAlert("Shoes saved to Collection!", "teal lighten-2");
@@ -41,7 +44,9 @@ $(document).ready(function () {
       shoeYr = $("#shoeYr").val();
       shoeGdr = $("#shoeGdr").val();
       console.log(shoeBrand, shoeYr, query, shoeGdr);
-      stockXSearch();
+      query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
+        ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
+        : emptyField(stockXSearch());
     });
   }
 
@@ -52,13 +57,8 @@ $(document).ready(function () {
         url: `https://stockx.com/api/browse?&_search=${query}&year=${shoeYr}&brand=${shoeBrand}&gender=${shoeGdr}`,
         dataType: "json",
       }).then(function (shoe) {
-        $("#result").html("");
-        $("#query").val("");
-        $("#shoeBrand").val("");
-        $("#shoeYr").val("");
-        $("#shoeGdr").val("");
         resultContainer = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < shoe.Products.length; i++) {
           const data = {
             year: shoe.Products[i].year,
             brand: shoe.Products[i].brand,
@@ -70,6 +70,7 @@ $(document).ready(function () {
             mV: shoe.Products[i].market.lastSale,
             img: shoe.Products[i].media.smallImageUrl,
             timg: shoe.Products[i].media.thumbUrl,
+            comment: "",
           };
           resultContainer.push(data);
           $("#result").append(`
@@ -90,6 +91,7 @@ $(document).ready(function () {
                   data.mV
                 )}</div>
                 <br>
+                <div class="comment">${data.comment}</div>
                 <div class=" ">
                   <button id="addBtn" data-id="${i}" class="btn waves-effect btn-flt green">
                     <i class="material-icons left"> add_circle_outline </i>Add
@@ -116,49 +118,20 @@ $(document).ready(function () {
       );
     });
   };
-  function showAlert(str, type) {
+  showAlert = (str, type) => {
     $("#alert").show();
     $("#alert").attr("class", `m6 s12 card-panel ${type}`);
     $("#alert").text(str);
     window.setTimeout(function () {
       $("#alert").hide();
     }, 2000);
-  }
+  };
+  emptyField = (func) => {
+    $("#result").html("");
+    $("#query").val("");
+    $("#shoeBrand").val("");
+    $("#shoeYr").val("");
+    $("#shoeGdr").val("");
+    func;
+  };
 });
-$(document).ready(function () {
-  $("select").formSelect();
-});
-
-// const renderLogs = () => {
-//   return new Promise((resolve, reject) => {
-//     $.ajax({
-//       type: "GET",
-//       url: "/logs/user",
-//     }).then((logs) => {
-//       $("#logsContainer").empty();
-//       logs.forEach((log) => {
-//         let { name, company, roast, description } = log;
-//         if (name) {
-//           name = `<p>${name}</p>`;
-//         } else {
-//           name = "";
-//         }
-//         $("#logsContainer").append(`
-//         <div class="row">
-//           <div class="card brown darken-1">
-//             <div class="card-content white-text">
-//               ${name}
-//               <span class="card-title">${company}</span>
-//               <br>
-//               <p>${roast}</p>
-//               <p>${description}</p>
-//             </div>
-//           </div>
-//         </div>
-//         `);
-
-//         resolve("success");
-//       });
-//     });
-//   });
-// };
