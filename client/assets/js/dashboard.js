@@ -45,7 +45,7 @@ $(document).ready(function () {
       console.log(shoeBrand, shoeYr, query, shoeGdr);
       query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
         ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
-        : stockXSearch();
+        : emptyField(stockXSearch());
     });
   }
 
@@ -56,7 +56,6 @@ $(document).ready(function () {
         url: `https://stockx.com/api/browse?&_search=${query}&year=${shoeYr}&brand=${shoeBrand}&gender=${shoeGdr}`,
         dataType: "json",
       }).then(function (shoe) {
-        emptyField();
         resultContainer = [];
         for (let i = 0; i < shoe.Products.length; i++) {
           const data = {
