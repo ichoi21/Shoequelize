@@ -11,12 +11,12 @@ $(document).on("click", "#btnContact", function (e) {
       </div>
         <div class="row" id="shoeCall">
           <div class="col s12 m6 l6">
-            <div class="card-small grey z-depth-5" style="height: 300px; padding: 52px;">
-            <span style="font-size: 20px;"> We're continuously looking to improve this site and giving you the best collection data!
+            <div class="card-small grey z-depth-5" style="height: 300px; padding: 30px;">
+            <h5 class="left-align"> We're continuously looking to improve this site and giving you the best collection data!
             <br>
-            If you have any suggestions, questions regarding our database and/or API - reach out to us!
+            If you have any suggestions, questions regarding our database and/or API - reach out to us!</h5>
             <br>
-            <span style:"right-align;">- Shoequelize Team</span></span>
+            <h6 class="right-align">-- Shoequelize Team</h6>
             </div>
           </div>
           <div class="col s12 m6 l6">
