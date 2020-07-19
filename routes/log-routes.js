@@ -5,19 +5,22 @@ const {
   findShoe,
   getAllShoes,
   deleteShoes,
+  getShoesBrand,
 } = require("../controllers/log-controller");
 
 // Get all coffee logs
 // Route: http://localhost:3000/logs/all
 // Type: GET
 
-router.get("/logs/all", getAllShoes);
+router.get("/shoes/all", getAllShoes);
 
-// Get all user coffee logs
+// Get all user shoes
 // Route: http://localhost:3000/logs/user
 // Type: GET
 
 router.post("/shoes/find/:name", findShoe);
+
+router.get("/shoes/find/:brand", getShoesBrand);
 
 // Create a new user log
 // Route: http://localhost:3000/shoe/new

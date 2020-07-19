@@ -104,7 +104,7 @@
   </div>
 
   <!-- *************** -->
-
+   <!--nav - trying to append from navbar.js eventually-->
   <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper green lighten-2">
@@ -122,10 +122,11 @@
           </li>
         </ul>
       </div>
-      <div id="alert" class=""></div>
     </div>
   </nav>
+  <div id="alert" class=""></div>
   </div>
+  
     <!-- expandable side nav -->
     <ul class="sidenav" id="mobile-demo">
       <li>
@@ -135,23 +136,42 @@
         <a class="loginBtn" href="#"><i class="material-icons right">exit_to_app</i>Logout</a>
       </li>
     </ul>
+ 
 
-<!-- search bar  -->
-  <div class="row">
+
+  <div class="row" id="searchBar">
     <div class="col s12 m10 l6 offset-l3 offset-m1">
-    <div class="nav-wrapper transparent">
-      <form>
-        <div class="input-field">
-          <input id="searchBtn" type="search" data-length="50">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-          <span class="helper-text" style="font-size: smaller;">Search (e.g Yeezy 350)</span>
-        </div>
-      </form>
-    </div>
+      <div class="card">
+        <form>
+          <div>
+            <div class="col s10 m2 l8 offset-m2 offset-l1">
+              <div class="input-field">
+                <input type="text" id="query" data-length="30" />
+                <label for="query">Shoe Brand</label>
+              </div>
+            </div>
+            <div class="col s10 m3" style="margin-top: 20px;">
+              <button
+                type="button"
+                id="btnSearch"
+                class="waves-effect waves-green btn-flat cyan"
+              >
+                Search
+                <i class="material-icons right">
+                  search
+                </i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
+
+
+
+<!-- search bar  -->
 <!-- append database based on search and previous searches  -->
   <div class="container">
     <div class="row" id="collectionInfo"></div>
