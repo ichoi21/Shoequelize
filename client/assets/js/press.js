@@ -9,15 +9,12 @@ $(document).on("click", "#btnPress", function (e) {
       <div class="row">
         <h4>Developer's Press</h4>
       </div>
-
-       <div class="row">
+      <div class="row">
         <table>
 
         </table>
-       </div>
-      
+      </div>
     </div> 
-
   </div>
   `
   );

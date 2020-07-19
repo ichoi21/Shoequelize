@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $("select").formSelect();
+
   $("#shoequelize").on("click", () => {
     window.location.href = "/dashboard";
   });
@@ -18,7 +20,6 @@ $(document).ready(function () {
     type: "GET",
     url: "/logs/all",
   }).then((shoes) => {
-    console.log(shoes);
     for (let i = 0; i < shoes.length; i++) {
       $("#collection").append(`
       <div class="col s12 m4 l4">
@@ -75,6 +76,18 @@ $(document).ready(function () {
     editModalInstance.open();
   });
 
+  $(document).on("click", "#searchBtn", () => {
+    const shoePID = $("#searchInput").val();
+    $.ajax({
+      type: "POST",
+      url: `/shoes/find/${shoePID}`,
+    }).then((res) => {
+      console.log(res);
+
+      $("#collection").append(`<h2>${res.name}</h2>`);
+    });
+  });
+
   const delShoes = (id) => {
     return new Promise((resolve, reject) => {
       $(document).on("click", "#delBtn", function () {
@@ -85,8 +98,4 @@ $(document).ready(function () {
       });
     });
   };
-});
-
-$(document).ready(function () {
-  $("select").formSelect();
 });

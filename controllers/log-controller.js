@@ -15,6 +15,7 @@ module.exports = {
           image: req.body.image,
           market_value: req.body.market_value,
           timg: req.body.timg,
+          comment: req.body.comment,
           UserId: req.user.id,
         });
         res.send(newShoe);
@@ -26,15 +27,15 @@ module.exports = {
     }
   },
 
-  getUserLogs: async (req, res) => {
+  getAllShoes: async (req, res) => {
     if (req.user) {
       try {
-        const userShoe = await db.Shoe.findAll({
+        const allShoes = await db.Shoe.findAll({
           where: {
             UserId: req.user.id,
           },
         });
-        res.send(userShoe);
+        res.send(allShoes);
       } catch (err) {
         res.send({ err_message: err });
       }
@@ -43,12 +44,20 @@ module.exports = {
     }
   },
 
-  getAllShoes: async (req, res) => {
-    try {
-      const allShoes = await db.Shoe.findAll({});
-      res.send(allShoes);
-    } catch (err) {
-      res.send({ err_message: err });
+  findShoe: async (req, res) => {
+    if (req.user) {
+      try {
+        const foundShoe = await db.Shoe.findOne({
+          where: {
+            PID: req.params.PID,
+          },
+        });
+        res.send(foundShoe);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
     }
   },
 
@@ -58,6 +67,7 @@ module.exports = {
         await db.Shoe.destroy({
           where: {
             id: req.params.id,
+            UserId: req.user.id,
           },
         });
         res.send({ msg: "shoes deleted!" });

@@ -17,6 +17,6 @@ router.get("/dashboard", (req, res) =>
 router.get("/collection", (req, res) =>
   !req.user
     ? res.sendFile(path.join(__dirname, "../client/landing.html"))
-    : res.sendFile(path.join(__dirname, "../client/view_all.html"))
+    : res.sendFile(path.join(__dirname, "../client/collection.html"))
 );
 module.exports = router;

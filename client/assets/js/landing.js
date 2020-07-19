@@ -1,8 +1,8 @@
-// const { formatter, stockx } = require("../js/lib");
-
 $(document).ready(function () {
-  // $(".parallax").parallax();
-  // $(".sidenav").sidenav();
+  $("select").formSelect();
+  $(".carousel").carousel();
+  $(".parallax").parallax();
+  $(".sidenav").sidenav();
 
   const loginModal = document.getElementById("loginModal");
   const loginModalInstance = M.Modal.init(loginModal, { dismissible: true });
@@ -64,10 +64,12 @@ $(document).ready(function () {
       shoeBrand = $("#shoeBrand").val();
       shoeYr = $("#shoeYr").val();
       shoeGdr = $("#shoeGdr").val();
-      console.log(shoeBrand, shoeYr, query, shoeGdr);
-      stockXSearch();
+      query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
+        ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
+        : stockXSearch();
     });
   }
+
   function stockXSearch() {
     $.ajax({
       type: "GET",
@@ -78,6 +80,7 @@ $(document).ready(function () {
         `
         <tr>
         <th>Name</th>
+        <th>&nbsp;&nbsp;</th>
         <th>Year</th>
         <th>Colorway</th>
         <th>MSRP</th>
@@ -102,8 +105,8 @@ $(document).ready(function () {
             <img src="${timg}" alt="" width="100" height="80" />
           </td>
           <td>
-           ${name} <br>
-           ${PID} | ${gender}
+          ${name} <br>
+          ${PID} | ${gender}
           </td>
           <td>${year}</td>
           <td>${colorway}</td>
@@ -116,6 +119,24 @@ $(document).ready(function () {
       }
     });
   }
+
+  showAlert = (str, type) => {
+    $("#alert").show();
+    $("#alert").attr("class", `m6 s12 card-panel ${type}`);
+    $("#alert").text(str);
+    window.setTimeout(function () {
+      $("#alert").hide();
+    }, 2000);
+  };
+
+  emptyField = (func) => {
+    $("#result").html("");
+    $("#query").val("");
+    $("#shoeBrand").val("");
+    $("#shoeYr").val("");
+    $("#shoeGdr").val("");
+    func;
+  };
 });
 
 {
