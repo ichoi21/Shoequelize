@@ -41,54 +41,7 @@ $(document).ready(function () {
     type: "GET",
     url: "/shoes/all",
   }).then((shoes) => {
-    for (let i = 0; i < shoes.length; i++) {
-      collectionWorth += parseInt(shoes[i].market_value);
-      amountSpent += parseInt(shoes[i].msrp);
-      amountShoes = shoes.length;
-      $("#collection").append(`
-        <div class="col s12 m4 l4">
-        <div id="content" class="card small center-align">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="${shoes[i].timg}" alt="" width="150"/>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"
-              >${shoes[i].name}<i class="material-icons right"
-                >more_vert</i></span>
-                <p>more info --></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">${shoes[i].name}
-              <i class="material-icons right grey-text">close</i></span>
-            <div class="gender">(${shoes[i].gender})</div>
-            <div class="color">${shoes[i].color}</div>
-            <div class="pid">${shoes[i].PID}</div>
-            <div class="year">${shoes[i].year}</div>
-            <div class="msrp">
-                MRSP: ${formatter.format(shoes[i].msrp)}
-            </div>
-            <div class="mv">
-                Current Value: ${formatter.format(shoes[i].market_value)}
-            </div>
-            <div class="fixed-action-btn">
-              <a class="btn-floating btn-large red">
-              <i class="large material-icons">mode_edit</i>
-              </a>
-              <ul>
-                <li>
-                  <a class="btn-floating red"><i class="large material-icons">delete_circle</i></a>
-                </li>
-                <li>
-                  <a class="btn-floating blue"><i class="large material-icons">add_comment</i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        </div>
-              `);
-    }
-
+    renderCard(shoes);
     const sum = (input) => {
       if (toString.call(input) !== "[object Array]") return false;
 
@@ -105,7 +58,6 @@ $(document).ready(function () {
     let delta = sum([collectionWorth, -amountSpent]);
     let deltaPercent = Math.floor((delta / amountSpent) * 100);
 
-    renderCard(shoes);
     $("#collectionInfo").append(`
       <div class="col s12 m12 l12">
         <h3 class="header" style="font-weight: bold;">Hey there, ${userAlias}!</h3>
