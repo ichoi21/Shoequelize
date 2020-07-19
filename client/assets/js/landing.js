@@ -80,6 +80,7 @@ $(document).ready(function () {
         `
         <tr>
         <th>Name</th>
+        <th>&nbsp;&nbsp;</th>
         <th>Year</th>
         <th>Colorway</th>
         <th>MSRP</th>
@@ -104,8 +105,8 @@ $(document).ready(function () {
             <img src="${timg}" alt="" width="100" height="80" />
           </td>
           <td>
-           ${name} <br>
-           ${PID} | ${gender}
+          ${name} <br>
+          ${PID} | ${gender}
           </td>
           <td>${year}</td>
           <td>${colorway}</td>
