@@ -61,6 +61,7 @@ $(document).ready(function () {
     let delta = sum([collectionWorth, -amountSpent]);
     let deltaPercent = Math.floor((delta / amountSpent) * 100);
 
+    // appends collection summary
     $("#collectionInfo").append(`
           <div class="col s12 m12 l12">
             <h3 class="header" style="font-weight: bold;">Hey there, ${userAlias}!</h3>
@@ -89,7 +90,13 @@ $(document).ready(function () {
           `);
   });
 
+  //holds bool val if render is by search
+  let searchStatus = false;
+
+  // holds bool value if user is on list or grid view
   let viewStatus = true;
+
+  // button that sorts result to list view
   $(document).on("click", "#listView", () => {
     viewStatus = false;
     $("#collection").html("");
@@ -102,6 +109,7 @@ $(document).ready(function () {
     });
   });
 
+  // button that sorts result to grid view
   $(document).on("click", "#gridView", () => {
     viewStatus = true;
     $("#collection").html("");
@@ -135,6 +143,7 @@ $(document).ready(function () {
   // search function to search by shoe brand
   $("#searchBar").on("click", "#btnSearch", (e) => {
     e.preventDefault();
+    searchStatus = true;
     const brand = $("#query").val();
     $.ajax({
       type: "GET",
