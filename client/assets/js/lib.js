@@ -1,4 +1,4 @@
-$(document).ready(function {
+$(document).ready(function () {
   $("scripts").html(
     `
     <scripts>

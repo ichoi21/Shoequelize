@@ -66,7 +66,7 @@ $(document).ready(function () {
       shoeGdr = $("#shoeGdr").val();
       query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
         ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
-        : stockXSearch();
+        : stockXSearch(urlApi);
     });
   }
 
@@ -88,7 +88,7 @@ $(document).ready(function () {
       </tr>
             `
       );
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < shoe.Products.length; i++) {
         let year = shoe.Products[i].year;
         let brand = shoe.Products[i].brand;
         let PID = shoe.Products[i].styleId;
