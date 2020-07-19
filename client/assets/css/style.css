@@ -84,3 +84,8 @@ h6 {
   margin-right: auto !important;
 
 }
+
+.btn-flat {
+
+  text-transform: lowercase !important;
+}
