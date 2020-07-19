@@ -4,7 +4,7 @@ $(document).on("click", "#btnContact", function (e) {
   e.preventDefault();
   $("#mainBody").html(
     `
-  <div class="padding white-text blue-grey darken-4">
+  <div class="padding white-text blue-grey darken-2">
     <div class="container">
       <div class="row">
         <h4>Contact Us</h4>
