@@ -189,40 +189,23 @@ $(document).ready(function () {
               >more_vert</i
             ></span
           >
-          <p>more info --></p>
+          <p> insert comment</p>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"
-            >${shoes[i].name}
-            <i class="material-icons right grey-text">close</i></span
-          >
+          <span class="card-title grey-text text-darken-4">${shoes[i].name}
+            <i class="material-icons grey-text left">close</i></span>
           <div class="gender">(${shoes[i].gender})</div>
           <div class="color">${shoes[i].color}</div>
           <div class="pid">${shoes[i].PID}</div>
           <div class="year">${shoes[i].year}</div>
-            <div class="msrp">
-              MRSP: ${formatter.format(shoes[i].msrp)}
-            </div>
-            <div class="mv">
-              Current Value: ${formatter.format(shoes[i].market_value)}
-            </div>
-            <div class="fixed-action-btn">
-              <a class="btn-floating btn-large red">
-                <i class="large material-icons">mode_edit</i>
-              </a>
-              <ul>
-                <li>
-                  <a class="btn-floating red"
-                    ><i class="large material-icons">delete_circle</i></a
-                  >
-                </li>
-                <li>
-                  <a class="btn-floating blue"
-                    ><i class="large material-icons">add_comment</i></a
-                  >
-                </li>
-              </ul>
-            </div>
+          <div class="msrp">MRSP: ${formatter.format(shoes[i].msrp)}</div>
+          <div class="mv">Current Value: ${formatter.format(
+            shoes[i].market_value
+          )}</div>
+          <div class="fixed-action-btn center-align">
+            <a class="btn-floating blue-grey" id="editBtn"><i class="material-icons md36">delete_outline</i></a>
+            <a class="btn-floating red" id="deleteBtn"><i class="material-icons md36">add_comment</i></a>
+          </div>
           </div>
         </div>
       </div>
@@ -241,6 +224,8 @@ $(document).ready(function () {
         <th>Colorway</th>
         <th>MSRP</th>
         <th>Market Value</th>
+        <th>&nbsp;&nbsp;</th>
+        <th>Side Comments</th>
       </tr>`
     );
     for (let i = 0; i < shoes.length; i++) {
@@ -261,7 +246,17 @@ $(document).ready(function () {
         <td>${shoes[i].color}</td>
         <td>${formatter.format(shoes[i].msrp)}</td>
         <td>${formatter.format(shoes[i].market_value)}</td>
-      </tr>`
+        <td>
+          <ul>
+            <li>
+              <a class="btn-flt btn blue-grey" id="btnEdit"><i class="material-icons md36 blue300">insert_comment</i></a>
+              <a class="btn-flt btn red" id="btnDelete"><i class="material-icons md36 red">delete_outline</i></a>
+            </li>
+          </ul>
+        </td>
+        <td>insert comment</td> 
+      </tr>
+      `
       );
     }
   };
