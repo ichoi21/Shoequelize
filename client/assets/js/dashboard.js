@@ -58,7 +58,7 @@ $(document).ready(function () {
       }).then(function (shoe) {
         emptyField();
         resultContainer = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < shoe.Products.length; i++) {
           const data = {
             year: shoe.Products[i].year,
             brand: shoe.Products[i].brand,
