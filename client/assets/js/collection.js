@@ -4,31 +4,38 @@ $(document).ready(function () {
   $(".parallax").parallax();
   $(".sidenav").sidenav();
 
+  // button to go back to dashboard page
   $("#shoequelize").on("click", () => {
     window.location.href = "/dashboard";
   });
 
+  //opens delete modal
   const deleteModal = document.getElementById("deleteModal");
   const deleteModalInstance = M.Modal.init(deleteModal, { dismissible: true });
 
+  //opens edit modal
   const editModal = document.getElementById("editModal");
   const editModalInstance = M.Modal.init(editModal, { dismissible: true });
 
+  //converts number to $0.00 format
   var formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
+  //variable for collection summary
   let collectionWorth = 0;
   let amountSpent = 0;
   let amountShoes = 0;
   let userAlias;
 
+  // displays alias in the page
   $.ajax({
     type: "GET",
     url: "/auth/user",
   }).then((res) => (userAlias = res.alias));
 
+  //displays all shoes collected in database
   $.ajax({
     type: "GET",
     url: "/shoes/all",
@@ -53,21 +60,25 @@ $(document).ready(function () {
   </div>`);
   });
 
+  // controls cancel button in each modal
   $(document).on("click", "#cancelDelete", () => {
     deleteModalInstance.close();
     editModalInstance.close();
   });
 
+  // opens delete modal
   $(document).on("click", "#deleteBtn", function () {
     deleteModalInstance.open();
     const shoeId = $(this).attr("data-id");
     delShoes(shoeId).then(() => location.replace("/collection"));
   });
 
+  // opens edit modal
   $(document).on("click", "#editBtn", function () {
     editModalInstance.open();
   });
 
+  // search function to search by shoe brand
   $("#searchBar").on("click", "#btnSearch", (e) => {
     e.preventDefault();
     const brand = $("#query").val();
@@ -75,7 +86,6 @@ $(document).ready(function () {
       type: "GET",
       url: `/shoes/find/${brand}`,
     }).then((shoes) => {
-      console.log(typeof shoes);
       $("#query").val("");
       if (shoes.length !== 0) {
         $("#collection").html("");
@@ -87,6 +97,7 @@ $(document).ready(function () {
     });
   });
 
+  // alert function
   showAlert = (str, type) => {
     $("#alert").show();
     $("#alert").attr("class", `m6 s12 card-panel ${type}`);
@@ -96,6 +107,7 @@ $(document).ready(function () {
     }, 2000);
   };
 
+  // renders cards and collects info about collection summary
   renderCard = (shoes) => {
     for (let i = 0; i < shoes.length; i++) {
       collectionWorth += parseInt(shoes[i].market_value);
@@ -141,6 +153,7 @@ $(document).ready(function () {
     }
   };
 
+  // delete shoes function
   const delShoes = (id) => {
     return new Promise((resolve, reject) => {
       $(document).on("click", "#delBtn", function () {
