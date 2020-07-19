@@ -6,7 +6,7 @@ $(document).on("click", "#btnAbout", function (e) {
     `
   <div class="padding white-text blue-grey darken-2">
     <div class="container">
-      <div class="card z-depth-3 transparent white-text" style="padding: 20px;">
+      <div class="card z-depth-3 transparent white-text blue-grey darken-3" style="padding: 20px;">
         <div class="row">
           <h4>About Shoequelize</h4>
         </div>

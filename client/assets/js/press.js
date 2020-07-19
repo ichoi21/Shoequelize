@@ -5,7 +5,7 @@ $(document).on("click", "#btnPress", function (e) {
   $("#mainBody").html(
     `
   <div class="padding white-text blue-grey darken-2">
-    <div class="container">
+    <div class="container blue-grey darken-3">
       <div class="row">
         <h4>Developer's Press</h4>
       </div>
@@ -103,6 +103,7 @@ $(document).on("click", "#btnPress", function (e) {
       </div>
     </div> 
   </div>
+  
   `
   );
 });
