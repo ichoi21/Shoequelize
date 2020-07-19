@@ -31,50 +31,9 @@ $(document).ready(function () {
 
   $.ajax({
     type: "GET",
-    url: "/logs/all",
+    url: "/shoes/all",
   }).then((shoes) => {
-    for (let i = 0; i < shoes.length; i++) {
-      collectionWorth += parseInt(shoes[i].market_value);
-      amountSpent += parseInt(shoes[i].msrp);
-      amountShoes = shoes.length;
-      $("#collection").append(`
-      <div class="col s12 m4 l4">
-          <div id="content" class="card-panel center-align">
-                          <div class="card-title" style="font-weight: bold; font-size: large;">
-                            ${shoes[i].name} (${shoes[i].gender})
-                          </div>
-                          <div class="card-image"><img src="${
-                            shoes[i].timg
-                          }" alt="" width="150"/></div>
-                          <div class="color">${shoes[i].color}</div>
-                          <div class="pid">${shoes[i].PID}</div>
-                          <div class="year">${
-                            shoes[i].year
-                          } | MRSP: ${formatter.format(shoes[i].msrp)}
-                          </div>
-                          <div class="mv">Current Value: ${formatter.format(
-                            shoes[i].market_value
-                          )}</div>
-                          <div class=" ">
-                            <button
-                              id="editBtn"
-                              data-id="${i}"
-                              class="btn waves-effect btn-flt blue"
-                            >
-                              <i class="material-icons left"> edit </i>Edit
-                            </button>
-                            <button
-                            id="deleteBtn"
-                            data-id="${shoes[i].id}"
-                            class="btn waves-effect btn-flt red"
-                          >
-                            <i class="material-icons left"> delete</i>Delete
-                          </button>
-                          </div>
-                        </div>
-                      </div>
-            `);
-    }
+    renderCard(shoes);
     $("#collectionInfo").append(`
     <div class="col s12 m12">
     <h2 class="header">Hello ${userAlias}!</h2>
@@ -109,17 +68,78 @@ $(document).ready(function () {
     editModalInstance.open();
   });
 
-  $(document).on("click", "#searchBtn", () => {
-    const shoePID = $("#searchInput").val();
+  $("#searchBar").on("click", "#btnSearch", (e) => {
+    e.preventDefault();
+    const brand = $("#query").val();
     $.ajax({
-      type: "POST",
-      url: `/shoes/find/${shoePID}`,
-    }).then((res) => {
-      console.log(res);
-
-      $("#collection").append(`<h2>${res.name}</h2>`);
+      type: "GET",
+      url: `/shoes/find/${brand}`,
+    }).then((shoes) => {
+      console.log(typeof shoes);
+      $("#query").val("");
+      if (shoes.length !== 0) {
+        $("#collection").html("");
+        renderCard(shoes);
+        showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+      } else {
+        showAlert("None found!", "red lighten-2");
+      }
     });
   });
+
+  showAlert = (str, type) => {
+    $("#alert").show();
+    $("#alert").attr("class", `m6 s12 card-panel ${type}`);
+    $("#alert").text(str);
+    window.setTimeout(function () {
+      $("#alert").hide();
+    }, 2000);
+  };
+
+  renderCard = (shoes) => {
+    for (let i = 0; i < shoes.length; i++) {
+      collectionWorth += parseInt(shoes[i].market_value);
+      amountSpent += parseInt(shoes[i].msrp);
+      amountShoes = shoes.length;
+      $("#collection").append(`
+        <div class="col s12 m4 l4">
+            <div id="content" class="card-panel center-align">
+                            <div class="card-title" style="font-weight: bold; font-size: large;">
+                              ${shoes[i].name} (${shoes[i].gender})
+                            </div>
+                            <div class="card-image"><img src="${
+                              shoes[i].timg
+                            }" alt="" width="150"/></div>
+                            <div class="color">${shoes[i].color}</div>
+                            <div class="pid">${shoes[i].PID}</div>
+                            <div class="year">${
+                              shoes[i].year
+                            } | MRSP: ${formatter.format(shoes[i].msrp)}
+                            </div>
+                            <div class="mv">Current Value: ${formatter.format(
+                              shoes[i].market_value
+                            )}</div>
+                            <div class=" ">
+                              <button
+                                id="editBtn"
+                                data-id="${i}"
+                                class="btn waves-effect btn-flt blue"
+                              >
+                                <i class="material-icons left"> edit </i>Edit
+                              </button>
+                              <button
+                              id="deleteBtn"
+                              data-id="${shoes[i].id}"
+                              class="btn waves-effect btn-flt red"
+                            >
+                              <i class="material-icons left"> delete</i>Delete
+                            </button>
+                            </div>
+                          </div>
+                        </div>
+              `);
+    }
+  };
 
   const delShoes = (id) => {
     return new Promise((resolve, reject) => {

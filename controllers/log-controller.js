@@ -44,6 +44,24 @@ module.exports = {
     }
   },
 
+  getShoesBrand: async (req, res) => {
+    if (req.user) {
+      try {
+        const brandShoes = await db.Shoe.findAll({
+          where: {
+            brand: req.params.brand,
+            UserId: req.user.id,
+          },
+        });
+        res.send(brandShoes);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
+    }
+  },
+
   findShoe: async (req, res) => {
     if (req.user) {
       try {
