@@ -36,6 +36,8 @@ $(document).ready(function () {
     </div>
   </footer>  
 
+  <script src="./assets/js/dashboard.js"></script>
+  <script src="./assets/js/collection.js"></script>
   <script src="./assets/js/about.js"></script>
   <script src="./assets/js/contact.js"></script>
   <script src="./assets/js/press.js"></script>
