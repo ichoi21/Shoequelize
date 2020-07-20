@@ -92,7 +92,6 @@ $(document).ready(function () {
 
   // holds bool value if user is on list or grid view
   let viewStatus = true;
-
   // button that sorts result to list view
   $(document).on("click", "#listView", () => {
     viewStatus = false;
@@ -102,7 +101,6 @@ $(document).ready(function () {
       url: "/shoes/all",
     }).then((shoes) => {
       renderList(shoes);
-      console.log(viewStatus);
     });
   });
 
@@ -132,9 +130,20 @@ $(document).ready(function () {
     delShoes(shoeId).then(() => location.replace("/collection"));
   });
 
+  $(document).on("click", "#editComment", function () {
+    editModalInstance.open();
+  });
+
   // opens edit modal
   $(document).on("click", "#editBtn", function () {
-    editModalInstance.open();
+    editModalInstance.close();
+    const id = $(this).attr("data-id");
+    const comment = $("#commentInput").val();
+    $.ajax({
+      type: "PATCH",
+      url: `/shoes/edit/${id}`,
+      data: { comment: comment, id: id },
+    }).then((res) => console.log(res.comment));
   });
 
   // search function to search by shoe brand
@@ -208,8 +217,9 @@ $(document).ready(function () {
             shoes[i].market_value
           )}</div>
           <div class="fixed-action-btn center-align">
-            <a class="btn-floating red" id="deleteBtn"><i class="material-icons md36">delete_outline</i></a>
-            <a class="btn-floating blue" id="editBtn"><i class="material-icons md36">add_comment</i></a>
+            <a class="btn-floating red" id="deleteBtn" data-id=${
+              shoes[i].id
+            }><i class="material-icons md36">delete_outline</i></a>
           </div>
           </div>
         </div>
@@ -217,6 +227,10 @@ $(document).ready(function () {
       `);
     }
   };
+  // future add comment soon!
+  /* <a class="btn-floating blue" id="editComment" data-id=${
+    shoes[i].id
+  }><i class="material-icons md36">add_comment</i></a> */
 
   // appends listView function
   renderList = (shoes) => {
@@ -230,7 +244,6 @@ $(document).ready(function () {
         <th>MSRP</th>
         <th>Market Value</th>
         <th>&nbsp;&nbsp;</th>
-        <th>Side Comments</th>
       </tr>`
     );
     for (let i = 0; i < shoes.length; i++) {
@@ -254,17 +267,21 @@ $(document).ready(function () {
         <td>
           <ul>
             <li>
-              <a class="btn-flt btn blue-grey" id="btnEdit"><i class="material-icons md36 blue300">insert_comment</i></a>
-              <a class="btn-flt btn red" id="btnDelete"><i class="material-icons md36 red">delete_outline</i></a>
+              <a class="btn-flt btn red" id="deleteBtn" data-id=${
+                shoes[i].id
+              }><i class="material-icons md36 red">delete_outline</i></a>
             </li>
           </ul>
         </td>
-        <td>insert comment</td> 
       </tr>
       `
       );
     }
   };
+  // future edit/add comment section soon!
+  //   <a class="btn-flt btn blue-grey" id="editComment" data-id=${
+  //     shoes[i].id
+  //   }><i class="material-icons md36 blue300">insert_comment</i></a>
 
   // delete shoes function
   const delShoes = (id) => {
