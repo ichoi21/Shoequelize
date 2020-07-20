@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("select").formSelect();
+  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
@@ -198,7 +198,6 @@ $(document).ready(function () {
               >more_vert</i
             ></span
           >
-          <p> insert comment</p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${shoes[i].name}
@@ -212,8 +211,8 @@ $(document).ready(function () {
             shoes[i].market_value
           )}</div>
           <div class="fixed-action-btn center-align">
-            <a class="btn-floating blue-grey" id="editBtn"><i class="material-icons md36">delete_outline</i></a>
-            <a class="btn-floating red" id="deleteBtn"><i class="material-icons md36">add_comment</i></a>
+            <a class="btn-floating red" id="deleteBtn"><i class="material-icons md36">delete_outline</i></a>
+            <a class="btn-floating blue" id="editBtn"><i class="material-icons md36">add_comment</i></a>
           </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("select").formSelect();
+  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
@@ -58,8 +58,9 @@ $(document).ready(function () {
   stockx();
 
   function stockx() {
-    $("#btnSearch").on("click", function (e) {
+    $(document).on("click", "#btnSearch", function (e) {
       e.preventDefault();
+      console.log("hello");
       $("#result_th").html("");
       query = $("#query").val();
       shoeBrand = $("#shoeBrand").val();
@@ -139,25 +140,6 @@ $(document).ready(function () {
     func;
   };
 });
-
-{
-  /* <div class="col s12 m8 l8">
-<div id="content" class=" center-align">
-                <div class="card-title">
-                  ${name} (${gender})
-                </div>
-                <div class="card-image small"><img src="${timg}" alt="" width="100" height="80"/></div>
-                <div class="color">${colorway}</div>
-                <div class="pid">${PID}</div>
-                <div class="year">
-                  ${year} | MRSP: ${formatter.format(msrp)}
-                </div>
-                <div class="mv">Current Value: ${formatter.format(
-                  mV
-                )}</div>
-              </div>
-            </div> */
-}
 
 const loginUser = (userObj) => {
   return new Promise((resolve, reject) => {
