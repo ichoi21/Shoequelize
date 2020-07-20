@@ -1,8 +1,6 @@
 $(document).ready(function () {
-  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
-  $(".sidenav").sidenav();
 
   const loginModal = document.getElementById("loginModal");
   const loginModalInstance = M.Modal.init(loginModal, { dismissible: true });
@@ -34,11 +32,11 @@ $(document).ready(function () {
     registerUser(newUser).then(() => location.replace("/"));
   });
 
-  $(".signupBtn").on("click", function () {
+  $(document).on("click", ".signupBtn", function () {
     registerModalInstance.open();
   });
 
-  $(".loginBtn").on("click", function () {
+  $(document).on("click", ".loginBtn", function () {
     loginModalInstance.open();
   });
 

@@ -4,7 +4,7 @@ $(document).ready(function () {
     <div class="nav-wrapper green lighten-2">
     <div class="row">
       <div class="col sm-12">
-        <a href="#" class="brand-logo"
+        <a href="#!" class="brand-logo"
           >Shoe<span class="deep-orange-text"
             >q<span class="yellow-text">u</span>e</span
           >lize</a
@@ -15,31 +15,32 @@ $(document).ready(function () {
       </div>
       <ul class="right hide-on-med-and-down">
         <li>
-          <a class="signupBtn" href="#!"
-            ><i class="material-icons right">assignment</i>Sign up</a
+          <a id="shoeCollection" href="#!"
+            ><i class="material-icons right">assignment</i>Collection</a
           >
         </li>
         <li>
-          <a class="loginBtn" href="#!"
-            ><i class="material-icons right">account_circle</i>Login</a
+          <a class="logoutBtn" href="/auth/logout"
+            ><i class="material-icons right">exit_to_app</i>Logout</a
           >
         </li>
       </ul>
     </div>
-    </div>
+  </div>
+  <div id="alert" class="col s12 m4 l4 right-align"></div>
   `
   );
 
   $(".sidenav").html(
     `
     <li>
-    <a class="signupBtn" href="#!"
-      ><i class="material-icons right">assignment</i>Register</a
+    <a class="shoeCollection" href="#!"
+      ><i class="material-icons right">assignment</i>Collection</a
     >
   </li>
   <li>
-    <a class="loginBtn" href="#"
-      ><i class="material-icons right">account_circle</i>Login</a
+    <a class="logoutBtn" href="/auth/logout"
+      ><i class="material-icons right">exit_to_app</i>Logout</a
     >
   </li>
   `
