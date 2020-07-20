@@ -96,4 +96,23 @@ module.exports = {
       res.redirect("/");
     }
   },
+
+  editShoes: async (req, res) => {
+    if (req.user) {
+      try {
+        await db.Shoe.update({
+          comment: req.body.text,
+          where: {
+            id: req.body.id,
+            UserId: req.user.id,
+          },
+        });
+        res.send({ msg: "Comment added!" });
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
+    }
+  },
 };
