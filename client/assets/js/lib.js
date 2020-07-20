@@ -1,14 +1,4 @@
-// $(document).ready(function () {
-//   $("scripts").html(
-//     `
-//     <scripts>
-//     <!-- <script src="./assets/js/searchbar.js"></script> -->
-//     <!-- <script src="./assets/js/navbar.js"></script> -->
-//     </scripts>
-//   `
-//   );
-// });
-
+// Append into specific search bar.
 $(document).ready(function () {
   $("#searchBar").html(
     `
