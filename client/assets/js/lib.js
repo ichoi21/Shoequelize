@@ -12,10 +12,8 @@
 $(document).ready(function () {
   $("#searchBar").html(
     `
-        <div class="row" id="searchBar">
           <div class="card">
             <form class="light-green lighten-5">
-              <div class="row green lighten-3">
               <div class="col s10 m2 l3 offset-m2 offset-l1">
                 <div class="input-field">
                   <input type="text" id="query" data-length="30" />
@@ -53,8 +51,7 @@ $(document).ready(function () {
                 </button>
               </div>
             </form>
-          </div>
-        </div>
+         </div>
       `
   );
 

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
@@ -62,7 +61,7 @@ $(document).ready(function () {
     let deltaPercent = Math.floor((delta / amountSpent) * 100);
 
     // appends collection summary
-    $("#collectionInfo").append(`
+    $("#collectionInfo").html(`
           <div class="col s12 m12 l12">
             <h3 class="header" style="font-weight: bold;">Hey there, ${userAlias}!</h3>
             <div class="card horizontal">
