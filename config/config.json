@@ -1,6 +1,8 @@
 {
   "development": {
     "username": "root",
+    "password": "coding2020",
+
     "password": "NugPup28@",
     "database": "shoes_db",
     "host": "127.0.0.1",
