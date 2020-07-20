@@ -7,12 +7,12 @@ $(document).ready(function () {
             <div class="col s10 m2 l3 offset-m2 offset-l1">
               <div class="input-field">
                 <input type="text" id="query" data-length="30" />
-                <label for="query">Shoe Name</label>
+                <label for="query" class="black-text">Shoe Name</label>
               </div>
             </div>
             <div class="col input-field s10 m2 l3">
               <select class="icons" id="shoeBrand">
-                <option value="" disabled selected>Brand</option>
+                <option value="" disabled selected class="black-text">Brand</option>
                 <option value="Nike" data-icon="./assets/img/icons/icon_nike.png">Nike</option>
                 <option value="Jordan" data-icon="./assets/img/icons/icon_jordan.png">Jordan</option>
                 <option value="Adidas" data-icon="./assets/img/icons/icon_adidas.png">Adidas</option>
@@ -23,11 +23,11 @@ $(document).ready(function () {
             </div>
             <div class="col input-field s10 m1 l1">
               <input type="text" id="shoeYr" data-length="4" />
-              <label for="shoeYr">Year</label>
+              <label for="shoeYr" class="black-text">Year</label>
             </div>
             <div class="col input-field s10 m2 l1">
               <select id="shoeGdr">
-                <option value="" disabled selected>Gender</option>
+                <option value="" disabled selected class="black-text">Gender</option>
                 <option value="men">Men</option>
                 <option value="women">Women</option>
                 <option value="toddler">Toddler</option>
@@ -54,7 +54,7 @@ $(document).ready(function () {
           <div class="col s10 m2 l8">
             <div class="input-field">
               <input type="text" id="query" data-length="30" />
-              <label for="query">Shoe Brand</label>
+              <label for="query" class="black-text">Shoe Brand</label>
             </div>
           </div>
           <div class="col s10 m3" style="margin-top: 20px;">
