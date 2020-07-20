@@ -1,5 +1,7 @@
 $(document).ready(function () {
   $("select").formSelect();
+  $(".parallax").parallax();
+  $(".sidenav").sidenav();
   $(".fixed-action-btn").floatingActionButton();
   stockx();
 
