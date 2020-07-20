@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
@@ -42,26 +41,27 @@ $(document).ready(function () {
   $.ajax({
     type: "GET",
     url: "/shoes/all",
-  }).then((shoes) => renderCard(shoes));
+  }).then((shoes) => {
+    renderCard(shoes);
 
-  const sum = (input) => {
-    if (toString.call(input) !== "[object Array]") return false;
+    const sum = (input) => {
+      if (toString.call(input) !== "[object Array]") return false;
 
-    var total = 0;
-    for (var i = 0; i < input.length; i++) {
-      if (isNaN(input[i])) {
-        continue;
+      var total = 0;
+      for (var i = 0; i < input.length; i++) {
+        if (isNaN(input[i])) {
+          continue;
+        }
+        total += Number(input[i]);
       }
-      total += Number(input[i]);
-    }
-    return total;
-  };
+      return total;
+    };
 
-  let delta = sum([collectionWorth, -amountSpent]);
-  let deltaPercent = Math.floor((delta / amountSpent) * 100);
+    let delta = sum([collectionWorth, -amountSpent]);
+    let deltaPercent = Math.floor((delta / amountSpent) * 100);
 
-  // appends collection summary
-  $("#collectionInfo").append(`
+    // appends collection summary
+    $("#collectionInfo").html(`
           <div class="col s12 m12 l12">
             <h3 class="header" style="font-weight: bold;">Hey there, ${userAlias}!</h3>
             <div class="card horizontal">
@@ -87,110 +87,109 @@ $(document).ready(function () {
             </div>
           </div>
           `);
-});
-
-//holds bool val if render is by search
-let searchStatus = false;
-
-// holds bool value if user is on list or grid view
-let viewStatus = true;
-// button that sorts result to list view
-$(document).on("click", "#listView", () => {
-  viewStatus = false;
-  $("#collection").html("");
-  $.ajax({
-    type: "GET",
-    url: "/shoes/all",
-  }).then((shoes) => {
-    renderList(shoes);
-    console.log(viewStatus);
   });
-});
 
-// button that sorts result to grid view
-$(document).on("click", "#gridView", () => {
-  viewStatus = true;
-  $("#collection").html("");
-  $.ajax({
-    type: "GET",
-    url: "/shoes/all",
-  }).then((shoes) => {
-    renderCard(shoes);
-    console.log(viewStatus);
+  //holds bool val if render is by search
+  let searchStatus = false;
+
+  // holds bool value if user is on list or grid view
+  let viewStatus = true;
+  // button that sorts result to list view
+  $(document).on("click", "#listView", () => {
+    viewStatus = false;
+    $("#collection").html("");
+    $.ajax({
+      type: "GET",
+      url: "/shoes/all",
+    }).then((shoes) => {
+      renderList(shoes);
+    });
   });
-});
 
-// controls cancel button in each modal
-$(document).on("click", "#cancelDelete", () => {
-  deleteModalInstance.close();
-  editModalInstance.close();
-});
+  // button that sorts result to grid view
+  $(document).on("click", "#gridView", () => {
+    viewStatus = true;
+    $("#collection").html("");
+    $.ajax({
+      type: "GET",
+      url: "/shoes/all",
+    }).then((shoes) => {
+      renderCard(shoes);
+      console.log(viewStatus);
+    });
+  });
 
-// opens delete modal
-$(document).on("click", "#deleteBtn", function () {
-  deleteModalInstance.open();
-  const shoeId = $(this).attr("data-id");
-  delShoes(shoeId).then(() => location.replace("/collection"));
-});
+  // controls cancel button in each modal
+  $(document).on("click", "#cancelDelete", () => {
+    deleteModalInstance.close();
+    editModalInstance.close();
+  });
 
-$(document).on("click", "#editComment", function () {
-  editModalInstance.open();
-});
+  // opens delete modal
+  $(document).on("click", "#deleteBtn", function () {
+    deleteModalInstance.open();
+    const shoeId = $(this).attr("data-id");
+    delShoes(shoeId).then(() => location.replace("/collection"));
+  });
 
-// opens edit modal
-$(document).on("click", "#editBtn", function () {
-  editModalInstance.close();
-  const id = $(this).attr("data-id");
-  const comment = $("#commentInput").val();
-  $.ajax({
-    type: "PATCH",
-    url: `/shoes/edit/${id}`,
-    data: { comment: comment, id: id },
-  }).then((res) => console.log(res.comment));
-});
+  $(document).on("click", "#editComment", function () {
+    editModalInstance.open();
+  });
 
-// search function to search by shoe brand
-$("#searchBar").on("click", "#btnSearch", (e) => {
-  e.preventDefault();
-  searchStatus = true;
-  const brand = $("#query").val();
-  $.ajax({
-    type: "GET",
-    url: `/shoes/find/${brand}`,
-  }).then((shoes) => {
-    $("#query").val("");
-    if (shoes.length !== 0) {
-      $("#collection").html("");
-      if (viewStatus == false) {
-        renderList(shoes);
-        showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+  // opens edit modal
+  $(document).on("click", "#editBtn", function () {
+    editModalInstance.close();
+    const id = $(this).attr("data-id");
+    const comment = $("#commentInput").val();
+    $.ajax({
+      type: "PATCH",
+      url: `/shoes/edit/${id}`,
+      data: { comment: comment, id: id },
+    }).then((res) => console.log(res.comment));
+  });
+
+  // search function to search by shoe brand
+  $("#searchBar").on("click", "#btnSearch", (e) => {
+    e.preventDefault();
+    searchStatus = true;
+    const brand = $("#query").val();
+    $.ajax({
+      type: "GET",
+      url: `/shoes/find/${brand}`,
+    }).then((shoes) => {
+      $("#query").val("");
+      if (shoes.length !== 0) {
+        $("#collection").html("");
+        if (viewStatus == false) {
+          renderList(shoes);
+          showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+        } else {
+          renderCard(shoes);
+          showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+        }
       } else {
-        renderCard(shoes);
-        showAlert(`${shoes.length} shoes found!`, "green lighten-2");
+        showAlert("None found!", "red lighten-2");
       }
-    } else {
-      showAlert("None found!", "red lighten-2");
-    }
+    });
   });
-});
 
-// alert function
-showAlert = (str, type) => {
-  $("#alert").show();
-  $("#alert").attr("class", `m6 s12 card-panel ${type}`);
-  $("#alert").text(str);
-  window.setTimeout(function () {
-    $("#alert").hide();
-  }, 2000);
-};
+  // alert function
+  showAlert = (str, type) => {
+    $("#alert").show();
+    $("#alert").attr("class", `m6 s12 card-panel ${type}`);
+    $("#alert").text(str);
+    window.setTimeout(function () {
+      $("#alert").hide();
+    }, 2000);
+  };
 
-// renders cards and collects info about collection summary
-renderCard = (shoes) => {
-  for (let i = 0; i < shoes.length; i++) {
-    collectionWorth += parseInt(shoes[i].market_value);
-    amountSpent += parseInt(shoes[i].msrp);
-    amountShoes = shoes.length;
-    $("#collection").append(`
+  // renders cards and collects info about collection summary
+  renderCard = (shoes) => {
+    for (let i = 0; i < shoes.length; i++) {
+      collectionWorth += parseInt(shoes[i].market_value);
+      amountSpent += parseInt(shoes[i].msrp);
+      amountShoes = shoes.length;
+      $("#collection").append(`
       <div class="col s12 m4 l4">
       <div id="content" class="card small center-align hoverable">
         <div class="card-image waves-effect waves-block waves-light">
@@ -223,21 +222,22 @@ renderCard = (shoes) => {
             <a class="btn-floating red" id="deleteBtn" data-id=${
               shoes[i].id
             }><i class="material-icons md36">delete_outline</i></a>
-            <a class="btn-floating blue" id="editComment" data-id=${
-              shoes[i].id
-            }><i class="material-icons md36">add_comment</i></a>
           </div>
           </div>
         </div>
       </div>
       `);
-  }
-};
+    }
+  };
+  // future add comment soon!
+  /* <a class="btn-floating blue" id="editComment" data-id=${
+    shoes[i].id
+  }><i class="material-icons md36">add_comment</i></a> */
 
-// appends listView function
-renderList = (shoes) => {
-  $("#collection").append(
-    `
+  // appends listView function
+  renderList = (shoes) => {
+    $("#collection").append(
+      `
         <tr>
         <th>Name</th>
         <th>&nbsp;&nbsp;</th>
@@ -248,13 +248,13 @@ renderList = (shoes) => {
         <th>&nbsp;&nbsp;</th>
         <th>Side Comments</th>
       </tr>`
-  );
-  for (let i = 0; i < shoes.length; i++) {
-    collectionWorth += parseInt(shoes[i].market_value);
-    amountSpent += parseInt(shoes[i].msrp);
-    amountShoes = shoes.length;
-    $("#collection").append(
-      `
+    );
+    for (let i = 0; i < shoes.length; i++) {
+      collectionWorth += parseInt(shoes[i].market_value);
+      amountSpent += parseInt(shoes[i].msrp);
+      amountShoes = shoes.length;
+      $("#collection").append(
+        `
         <tr>
         <td>
           <img src="${shoes[i].timg}" alt="" width="100" height="80" />
@@ -270,30 +270,31 @@ renderList = (shoes) => {
         <td>
           <ul>
             <li>
-              <a class="btn-flt btn blue-grey" id="editComment" data-id=${
-                shoes[i].id
-              }><i class="material-icons md36 blue300">insert_comment</i></a>
               <a class="btn-flt btn red" id="deleteBtn" data-id=${
                 shoes[i].id
               }><i class="material-icons md36 red">delete_outline</i></a>
             </li>
           </ul>
         </td>
-        <td>insert comment</td> 
       </tr>
       `
-    );
-  }
-};
+      );
+    }
+  };
+  // future edit/add comment section soon!
+  //   <a class="btn-flt btn blue-grey" id="editComment" data-id=${
+  //     shoes[i].id
+  //   }><i class="material-icons md36 blue300">insert_comment</i></a>
 
-// delete shoes function
-const delShoes = (id) => {
-  return new Promise((resolve, reject) => {
-    $(document).on("click", "#delBtn", function () {
-      $.ajax({
-        type: "DELETE",
-        url: `/shoe/delete/${id}`,
-      }).then(() => resolve({ msg: "Shoe Deleted!" }));
+  // delete shoes function
+  const delShoes = (id) => {
+    return new Promise((resolve, reject) => {
+      $(document).on("click", "#delBtn", function () {
+        $.ajax({
+          type: "DELETE",
+          url: `/shoe/delete/${id}`,
+        }).then(() => resolve({ msg: "Shoe Deleted!" }));
+      });
     });
-  });
-};
+  };
+});
