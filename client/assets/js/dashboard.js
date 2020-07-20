@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("select").formSelect();
+  // $("select").formSelect();
   $(".fixed-action-btn").floatingActionButton();
   stockx();
 
@@ -37,7 +37,7 @@ $(document).ready(function () {
   });
 
   function stockx() {
-    $("#btnSearch").on("click", function (e) {
+    $(document).on("click", "#btnSearch", function (e) {
       e.preventDefault();
       query = $("#query").val();
       shoeBrand = $("#shoeBrand").val();

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("select").formSelect();
+  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
@@ -58,8 +58,9 @@ $(document).ready(function () {
   stockx();
 
   function stockx() {
-    $("#btnSearch").on("click", function (e) {
+    $(document).on("click", "#btnSearch", function (e) {
       e.preventDefault();
+      console.log("hello");
       $("#result_th").html("");
       query = $("#query").val();
       shoeBrand = $("#shoeBrand").val();
