@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("select").formSelect();
+  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();

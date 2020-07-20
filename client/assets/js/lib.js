@@ -52,8 +52,7 @@ $(document).ready(function () {
                   Search<i class="material-icons right">search</i>
                 </button>
               </div>
-               </form> </div>
-          
+            </form>
           </div>
         </div>
       `
