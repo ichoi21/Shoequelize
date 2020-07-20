@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="../client/css/style.css" />
   <!--Let browser know website is optimized for mobile-->
+  <style>body 
+  {
+    background-image: url("https://images.unsplash.com/photo-1528669697102-a6edb9b6a282?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+  }
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shoequelize</title>
 </head>
@@ -82,9 +87,7 @@
               <a
                 href="#!"
                 id="cancelDelete"
-                class="waves-effect waves-green btn-flat"
-                ><i class="material-icons left">cancel</i>Cancel</a
-              >
+                class="waves-effect waves-green btn-flat"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
             <div class="col s6">
               <div class="right-align">
@@ -152,15 +155,9 @@
               </div>
             </div>
             <div class="col s10 m3" style="margin-top: 20px;">
-              <button
-                type="button"
-                id="btnSearch"
-                class="waves-effect waves-green btn-flat cyan"
-              >
+              <button type="button" id="btnSearch" class="waves-effect waves-green btn-flat cyan">
                 Search
-                <i class="material-icons right">
-                  search
-                </i>
+                <i class="material-icons right">search</i>
               </button>
             </div>
           </div>
@@ -169,16 +166,13 @@
     </div>
   </div>
 
-
-
-
 <!-- search bar  -->
 <!-- append database based on search and previous searches  -->
   <div class="container">
     <div class="row" id="collectionInfo"></div>
     <div class="row right-align" id="views">
-      <span class="material-icons" style="font-size:xx-large;">view_list</span>
-      <span class="material-icons" style="font-size:xx-large;">view_module</span>
+      <span id = "listView" class="material-icons" style="font-size:xx-large;">view_list</span>
+      <span id = "gridView" class="material-icons" style="font-size:xx-large;">view_module</span>
     </div>
     <div class="row highlighted" id="collection"></div>
   </div>
@@ -199,9 +193,6 @@
   <script src="./assets/js/collection.js"></script>
   <script src="./assets/js/lib.js"></script>
   <script src="./assets/js/footer.js"></script>
-  <script src="./assets/js/about.js"></script>
-  <script src="./assets/js/contact.js"></script>
-  <script src="./assets/js/press.js"></script>
   <scripts></scripts>
 </body>
 

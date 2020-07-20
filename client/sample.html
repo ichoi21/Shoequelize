@@ -135,7 +135,7 @@
           </div>
 
           <div class="col s12 m4 l4">
-            <div id="content" class="card small center-align">
+            <div id="content" class="card small center-align hoverable">
               <div class="card-image waves-effect waves-block waves-light">
                 <img
                   class="activator"
@@ -150,13 +150,12 @@
                     >more_vert</i
                   ></span
                 >
-                <p><a href="#">This is a link</a></p>
+                <p>${comment}</p>
               </div>
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"
                   >${shoes[i].name}
-                  <i class="material-icons right grey-text">close</i></span
-                >
+                  <i class="material-icons left grey-text">close</i></span>
                 <div class="gender">(${shoes[i].gender})</div>
                 <div class="color">${shoes[i].color}</div>
                 <div class="pid">${shoes[i].PID}</div>
@@ -167,22 +166,20 @@
                   <div class="mv">
                     Current Value: ${formatter.format(shoes[i].market_value)}
                   </div>
-                  <div class="fixed-action-btn">
-                    <a class="btn-floating btn-large red">
+                  <div class="fixed-action-btn center-align">
+                    <!-- <a class="btn-floating btn-large blue darken-2">
                       <i class="large material-icons">mode_edit</i>
-                    </a>
-                    <ul>
-                      <li>
+                    </a> -->
+                    <!-- <ul>
+                      <li> -->
                         <a class="btn-floating red"
-                          ><i class="large material-icons">delete_circle</i></a
-                        >
-                      </li>
-                      <li>
-                        <a class="btn-floating blue"
-                          ><i class="large material-icons">add_comment</i></a
-                        >
-                      </li>
-                    </ul>
+                          ><i class="md36 material-icons">delete_outline</i></a>
+                      <!-- </li>
+                      <li> -->
+                        <a class="btn-floating blue-grey"
+                          ><i class="md36 material-icons">add_comment</i></a>
+                      <!-- </li>
+                    </ul> -->
                   </div>
                 </div>
               </div>
@@ -191,6 +188,11 @@
         </div>
       </div>
     </div>
+    <div class="two pink lighten-5">
+      <div class="row">
+        <div class="col s12 m8 l8 offset-l2 offset-m2" id="searchBar"></div>
+      </div>
+    </div>  
 
     <footer class="page-footer pink darken-4"></footer>
     <!--footer is append from footer.js-->
@@ -204,6 +206,7 @@
     <script src="./assets/js/help.js"></script>
     <script src="./assets/js/collection.js"></script>
     <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/lib.js"></script>
     <script src="./assets/js/footer.js"></script>
   </body>
 </html>
