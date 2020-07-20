@@ -89,7 +89,8 @@ $(document).on("click", "#btnPress", function (e) {
         </tr>
         <tr>
         <td>7.19.20</td>
-        <td>Deployment to Heroku - Beta service is online!
+        <td>Coding consolidation and restructure.
+        <br>Deployment to Heroku - Beta service is online!
         </td>
         </tr>
         <tr>
@@ -99,7 +100,7 @@ $(document).on("click", "#btnPress", function (e) {
         </tr>
       </tbody>
     </table>
-        </table>
+
       </div>
     </div> 
   </div>

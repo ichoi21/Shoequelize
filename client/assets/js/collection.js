@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("select").formSelect();
+  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
   $(".sidenav").sidenav();
@@ -8,9 +8,7 @@ $(document).ready(function () {
   //Initiate functions:
 
   // button to go back to dashboard page
-  $("#shoequelize").on("click", () => {
-    window.location.href = "/dashboard";
-  });
+  $("#shoequelize").on("click", () => (window.location.href = "/dashboard"));
 
   //opens delete modal
   const deleteModal = document.getElementById("deleteModal");
