@@ -35,6 +35,10 @@ $(document).ready(function () {
       </div>
     </div>
   </footer>  
+
+  <script src="./assets/js/about.js"></script>
+  <script src="./assets/js/contact.js"></script>
+  <script src="./assets/js/press.js"></script>
     
   `
   );
