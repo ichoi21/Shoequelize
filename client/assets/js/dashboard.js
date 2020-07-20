@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $(".fixed-action-btn").floatingActionButton();
   stockx();
 
   let resultContainer = [];
@@ -8,57 +9,45 @@ $(document).ready(function () {
     currency: "USD",
   });
 
+  $("#shoeCollection").on("click", () => {
+    window.location.href = "/collection";
+  });
+
+  $(document).on("click", "#addBtn", function (e) {
+    e.preventDefault();
+    const index = $(this).attr("data-id");
+
+    const newShoes = {
+      year: resultContainer[index].year,
+      brand: resultContainer[index].brand,
+      PID: resultContainer[index].PID,
+      name: resultContainer[index].name,
+      gender: resultContainer[index].gender,
+      color: resultContainer[index].colorway,
+      msrp: resultContainer[index].msrp,
+      image: resultContainer[index].img,
+      market_value: resultContainer[index].mV,
+      timg: resultContainer[index].timg,
+      comment: resultContainer[index].comment,
+    };
+    console.log(newShoes);
+    showAlert("Shoes saved to Collection!", "teal lighten-2");
+    addShoe(newShoes).then(() => console.log({ msg: "shoe added!" }));
+  });
+
   function stockx() {
-    $("#btnSearch").on("click", function (e) {
+    $(document).on("click", "#btnSearch", function (e) {
       e.preventDefault();
       query = $("#query").val();
       shoeBrand = $("#shoeBrand").val();
       shoeYr = $("#shoeYr").val();
       shoeGdr = $("#shoeGdr").val();
       console.log(shoeBrand, shoeYr, query, shoeGdr);
-      stockXSearch();
+      query === "" || shoeBrand === "" || shoeYr === "" || shoeGdr === ""
+        ? emptyField(showAlert("ERROR: Input cannot be NULL!", "red lighten-2"))
+        : emptyField(stockXSearch());
     });
   }
-
-  $(document).on("click", "#addBtn", function (e) {
-    e.preventDefault();
-    const index = $(this).attr("data-id");
-    console.log(resultContainer);
-
-    const newShoes = {
-      // year: 2019,
-      // brand: "adidas",
-      // PID: "BB0394",
-      // style: "Citrin/Citrin",
-      // gender: "men",
-      // color: "Citrin",
-      // msrp: 220,
-      // image: "google.com",
-      // market_value: 325,
-      // timg: "google.com",
-      year: resultContainer[index].year,
-      brand: resultContainer[index].brand,
-      PID: resultContainer[index].PID,
-      style: resultContainer[index].style,
-      gender: resultContainer[index].$gender,
-      color: resultContainer[index].color,
-      msrp: resultContainer[index].msrp,
-      image: resultContainer[index].image,
-      market_value: resultContainer[index].market_value,
-      timg: resultContainer[index].timg,
-    };
-    addShoe(newShoes).then(() => console.log(index));
-  });
-
-  // const saveShoe = () => {
-  //   return new Promise((resolve, reject) => {
-  //     $(document).on("click", "#addBtn", function (e) {
-  //       e.preventDefault();
-  //       obj = resultContainer[index];
-  //       resolve({ msg: "success" });
-  //     });
-  //   });
-  // };
 
   const stockXSearch = () => {
     return new Promise((resolve, reject) => {
@@ -67,13 +56,8 @@ $(document).ready(function () {
         url: `https://stockx.com/api/browse?&_search=${query}&year=${shoeYr}&brand=${shoeBrand}&gender=${shoeGdr}`,
         dataType: "json",
       }).then(function (shoe) {
-        $("#result").html("");
-        $("#query").val("");
-        $("#shoeBrand").val("");
-        $("#shoeYr").val("");
-        $("#shoeGdr").val("");
         resultContainer = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < shoe.Products.length; i++) {
           const data = {
             year: shoe.Products[i].year,
             brand: shoe.Products[i].brand,
@@ -85,44 +69,42 @@ $(document).ready(function () {
             mV: shoe.Products[i].market.lastSale,
             img: shoe.Products[i].media.smallImageUrl,
             timg: shoe.Products[i].media.thumbUrl,
+            comment: "",
           };
           resultContainer.push(data);
           $("#result").append(`
-          <div class="col s12 m3">
-          <div id="content" class="card-panel center-align">
-                          <div class="card-title">
-                            ${data.brand}: ${data.name} (${data.gender})
-                          </div>
-                          <div class="card-image small"><img src="${
-                            data.timg
-                          }" alt="" /></div>
-                          <div class="color">${data.colorway}</div>
-                          <div class="pid">${data.PID}</div>
-                          <div class="year">
-                            ${data.year} | MRSP: ${
-            data.PID
-          } - ${formatter.format(data.msrp)}
-                          </div>
-                          <div class="mv">Current Value: ${formatter.format(
-                            data.mV
-                          )}</div>
-                          <div class=" ">
-                            <button
-                              id="addBtn"
-                              data-id="${i}"
-                              class="btn waves-effect btn-flt green"
-                            >
-                              <i class="material-icons left"> add_circle_outline </i>Add
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+            <div class="col s12 m4 l4">
+              <div id="content" class="card large center-align">
+                <div class="card-title" style="font-weight: bold; font-size: large;">
+                  ${data.name} (${data.gender})
+                </div>
+                <div class="card-image small">
+                  <img src="${data.timg}" alt="" width="180"/>
+                </div>
+                <div class="color">${data.colorway}</div>
+                <div class="pid">${data.PID}</div>
+                <div class="year">
+                  ${data.year} | MRSP: ${formatter.format(data.msrp)}
+                </div>
+                <div class="mv">Current Value: ${formatter.format(
+                  data.mV
+                )}</div>
+                <br>
+                <div class="comment">${data.comment}</div>
+                <div class=" ">
+                  <button id="addBtn" data-id="${i}" class="btn waves-effect btn-flt green">
+                    <i class="material-icons left"> add_circle_outline </i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
               `);
           resolve("Search: Results shown!");
         }
       });
     });
   };
+
   const addShoe = (shoeObj) => {
     return new Promise((resolve, reject) => {
       $.ajax({
@@ -135,54 +117,20 @@ $(document).ready(function () {
       );
     });
   };
+  showAlert = (str, type) => {
+    $("#alert").show();
+    $("#alert").attr("class", `m6 s12 card-panel ${type}`);
+    $("#alert").text(str);
+    window.setTimeout(function () {
+      $("#alert").hide();
+    }, 2000);
+  };
+  emptyField = (func) => {
+    $("#result").html("");
+    $("#query").val("");
+    $("#shoeBrand").val("");
+    $("#shoeYr").val("");
+    $("#shoeGdr").val("");
+    func;
+  };
 });
-
-// const renderLogs = () => {
-//   return new Promise((resolve, reject) => {
-//     $.ajax({
-//       type: "GET",
-//       url: "/logs/user",
-//     }).then((logs) => {
-//       $("#logsContainer").empty();
-//       logs.forEach((log) => {
-//         let { name, company, roast, description } = log;
-//         if (name) {
-//           name = `<p>${name}</p>`;
-//         } else {
-//           name = "";
-//         }
-//         $("#logsContainer").append(`
-//         <div class="row">
-//           <div class="card brown darken-1">
-//             <div class="card-content white-text">
-//               ${name}
-//               <span class="card-title">${company}</span>
-//               <br>
-//               <p>${roast}</p>
-//               <p>${description}</p>
-//             </div>
-//           </div>
-//         </div>
-//         `);
-
-//         resolve("success");
-//       });
-//     });
-//   });
-// };
-
-// $(".parallax").parallax();
-// $(".sidenav").sidenav();
-
-// const logModal = document.getElementById("newLogModal");
-// const logInstance = M.Modal.init(logModal, { dismissible: true });
-
-// renderLogs();
-
-// $("#newLogBtn").on("click", () => logInstance.open());
-// $("#logCancel").on("click", () => logInstance.close());
-
-// $("#logForm").on("submit", (e) => {
-//   e.preventDefault();
-//   createLog().then(() => renderLogs());
-// });

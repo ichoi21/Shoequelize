@@ -8,13 +8,14 @@ module.exports = {
           year: req.body.year,
           brand: req.body.brand,
           PID: req.body.PID,
-          style: req.body.style,
+          name: req.body.name,
           gender: req.body.gender,
           color: req.body.color,
           msrp: req.body.msrp,
           image: req.body.image,
           market_value: req.body.market_value,
           timg: req.body.timg,
+          comment: req.body.comment,
           UserId: req.user.id,
         });
         res.send(newShoe);
@@ -26,15 +27,15 @@ module.exports = {
     }
   },
 
-  getUserLogs: async (req, res) => {
+  getAllShoes: async (req, res) => {
     if (req.user) {
       try {
-        const userShoe = await db.Shoe.findAll({
+        const allShoes = await db.Shoe.findAll({
           where: {
             UserId: req.user.id,
           },
         });
-        res.send(userShoe);
+        res.send(allShoes);
       } catch (err) {
         res.send({ err_message: err });
       }
@@ -43,12 +44,56 @@ module.exports = {
     }
   },
 
-  getAllLogs: async (req, res) => {
-    try {
-      const allShoes = await db.Shoe.findAll({});
-      res.send(allShoes);
-    } catch (err) {
-      res.send({ err_message: err });
+  getShoesBrand: async (req, res) => {
+    if (req.user) {
+      try {
+        const brandShoes = await db.Shoe.findAll({
+          where: {
+            brand: req.params.brand,
+            UserId: req.user.id,
+          },
+        });
+        res.send(brandShoes);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
+    }
+  },
+
+  findShoe: async (req, res) => {
+    if (req.user) {
+      try {
+        const foundShoe = await db.Shoe.findOne({
+          where: {
+            PID: req.params.PID,
+          },
+        });
+        res.send(foundShoe);
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
+    }
+  },
+
+  deleteShoes: async (req, res) => {
+    if (req.user) {
+      try {
+        await db.Shoe.destroy({
+          where: {
+            id: req.params.id,
+            UserId: req.user.id,
+          },
+        });
+        res.send({ msg: "shoes deleted!" });
+      } catch (err) {
+        res.send({ err_message: err });
+      }
+    } else {
+      res.redirect("/");
     }
   },
 };

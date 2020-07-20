@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    style: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     timg: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    comment: {
       type: DataTypes.STRING,
       allowNull: true,
     },

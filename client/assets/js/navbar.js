@@ -27,8 +27,13 @@ $(document).ready(function () {
       </ul>
     </div>
     </div>
+
   `
   );
+});
+
+$(document).ready(function () {
+  $(".sidenav").sidenav();
 });
 
 /* OLD NAV BAR CODE */
