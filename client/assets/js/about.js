@@ -8,10 +8,10 @@ $(document).on("click", "#btnAbout", function (e) {
     <div class="container">
       <div class="card z-depth-3 transparent white-text blue-grey darken-3" style="padding: 20px;">
         <div class="row">
-          <h4>About Shoequelize</h4>
+          <h5 class="center-align">About Shoequelize</h5>
         </div>
-        <p class="flow-text">Calling all Shoenatics to unite! Ever wonder what you're collection of swooshes and Yeezys are worth?</p>
-        <p class="flow-text"> We've got your solution! Here at Shoequelize; our goal is help you gather your collection's worth!
+        <p class="">Calling all Shoenatics to unite! Ever wonder what you're collection of swooshes and Yeezys are worth?</p>
+        <p class=""> We've got your solution! Here at Shoequelize; our goal is help you gather your collection's worth!
           Simply search our database<sup>*</sup> and add them to your registered shoe collection (signing up is FREE!). 
         <br>
           After that, let's us due to the math for you! 

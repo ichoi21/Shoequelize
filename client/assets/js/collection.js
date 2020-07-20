@@ -7,9 +7,7 @@ $(document).ready(function () {
   //Initiate functions:
 
   // button to go back to dashboard page
-  $("#shoequelize").on("click", () => {
-    window.location.href = "/dashboard";
-  });
+  $("#shoequelize").on("click", () => (window.location.href = "/dashboard"));
 
   //opens delete modal
   const deleteModal = document.getElementById("deleteModal");
@@ -246,7 +244,6 @@ $(document).ready(function () {
         <th>MSRP</th>
         <th>Market Value</th>
         <th>&nbsp;&nbsp;</th>
-        <th>Side Comments</th>
       </tr>`
     );
     for (let i = 0; i < shoes.length; i++) {

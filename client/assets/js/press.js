@@ -1,5 +1,4 @@
 //This is the about developer's press appended into the mainBody id when clicked on
-
 $(document).on("click", "#btnPress", function (e) {
   e.preventDefault();
   $("#mainBody").html(
@@ -7,11 +6,11 @@ $(document).on("click", "#btnPress", function (e) {
   <div class="padding white-text blue-grey darken-2">
     <div class="container blue-grey darken-3">
       <div class="row">
-        <h4>Developer's Press</h4>
+        <h5 class="center-align">Developer's Press</h5>
       </div>
       <div class="row">
-      <div class="card z-depth-3 transparent white-text">
-        <table class="highlight">
+      <div class="card z-depth-3 transparent">
+        <table class="highlight white-text">
         <thead>
           <tr>
               <th>Date</th>

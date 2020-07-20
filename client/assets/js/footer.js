@@ -16,7 +16,7 @@ $(document).ready(function () {
         <div class="col s12 m3 l4">
           <h6>SITE MAP</h6>
           <ul id="" style="list-style-type:none white-text ">
-            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text " id="/">Home</a></li></div>
+            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text" href="../../landing.html">Home</a></li></div>
             <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text" id="btnContact">Contact Us</a></li></div>
           </ul>
         </div>
@@ -35,13 +35,9 @@ $(document).ready(function () {
       </div>
     </div>
   </footer>  
-
-  <script src="./assets/js/dashboard.js"></script>
-  <script src="./assets/js/collection.js"></script>
   <script src="./assets/js/about.js"></script>
   <script src="./assets/js/contact.js"></script>
-  <script src="./assets/js/press.js"></script>
-    
+  <script src="./assets/js/press.js"></script> 
   `
   );
 });
