@@ -6,6 +6,7 @@ const {
   getAllShoes,
   deleteShoes,
   getShoesBrand,
+  editShoes,
 } = require("../controllers/log-controller");
 
 // Get all coffee logs
@@ -29,5 +30,7 @@ router.get("/shoes/find/:brand", getShoesBrand);
 router.post("/shoe/new", newShoe);
 
 router.delete("/shoe/delete/:id", deleteShoes);
+
+router.patch("/shoes/edit/:id", editShoes);
 
 module.exports = router;
