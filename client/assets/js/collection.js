@@ -208,7 +208,9 @@ $(document).ready(function () {
             shoes[i].market_value
           )}</div>
           <div class="fixed-action-btn center-align">
-            <a class="btn-floating red" id="deleteBtn"><i class="material-icons md36">delete_outline</i></a>
+            <a class="btn-floating red" id="deleteBtn" data-id=${
+              shoes[i].id
+            }><i class="material-icons md36">delete_outline</i></a>
             <a class="btn-floating blue" id="editBtn"><i class="material-icons md36">add_comment</i></a>
           </div>
           </div>
@@ -255,7 +257,9 @@ $(document).ready(function () {
           <ul>
             <li>
               <a class="btn-flt btn blue-grey" id="btnEdit"><i class="material-icons md36 blue300">insert_comment</i></a>
-              <a class="btn-flt btn red" id="btnDelete"><i class="material-icons md36 red">delete_outline</i></a>
+              <a class="btn-flt btn red" id="deleteBtn" data-id=${
+                shoes[i].id
+              }><i class="material-icons md36 red">delete_outline</i></a>
             </li>
           </ul>
         </td>
