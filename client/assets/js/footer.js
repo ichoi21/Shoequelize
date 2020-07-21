@@ -16,7 +16,7 @@ $(document).ready(function () {
         <div class="col s12 m3 l4">
           <h6>SITE MAP</h6>
           <ul id="" style="list-style-type:none white-text ">
-            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text" href="../../landing.html">Home</a></li></div>
+            <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text" id="shoequelize1">Home</a></li></div>
             <div class="hoverable"><li><a class="btn-flat waves-effect waves-light white-text" id="btnContact">Contact Us</a></li></div>
           </ul>
         </div>
@@ -40,4 +40,5 @@ $(document).ready(function () {
   <script src="./assets/js/press.js"></script> 
   `
   );
+  $("#shoequelize1").on("click", () => (window.location.href = "/dashboard"));
 });

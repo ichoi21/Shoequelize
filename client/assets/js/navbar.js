@@ -4,12 +4,12 @@ $(document).ready(function () {
     <div class="nav-wrapper green lighten-2">
     <div class="row">
       <div class="col sm-12">
-        <a href="#" class="brand-logo"
+        <a id="shoequelize" href="#!" class="brand-logo"
           >Shoe<span class="deep-orange-text"
             >q<span class="yellow-text">u</span>e</span
           >lize</a
         >
-        <a href="#!" data-target="mobile-demo" class="sidenav-trigger"
+        <a href="/" data-target="mobile-demo" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
         >
       </div>
@@ -44,4 +44,5 @@ $(document).ready(function () {
   </li>
   `
   );
+  $("#shoequelize").on("click", () => (window.location.href = "/"));
 });
