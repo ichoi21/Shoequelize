@@ -21,6 +21,10 @@ input {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.logo-font {
+  font-family: "Knewave", cursive;
+}
+
 .btn {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1.5px;
@@ -56,10 +60,10 @@ input {
   color: rgb(24, 23, 23) !important;
 }
 
-
 #searchBar.card {
   opacity: 80%;
   /* background-color: rgba(91, 147, 211, 0.671); */
+}
 
 #contact {
   font-size: 27px !important;
@@ -82,10 +86,8 @@ h6 {
 #center {
   margin-left: auto !important;
   margin-right: auto !important;
-
 }
 
 .btn-flat {
-
   text-transform: lowercase !important;
 }
