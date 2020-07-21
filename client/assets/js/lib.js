@@ -7,7 +7,7 @@ $(document).ready(function () {
             <div class="col s10 m2 l2 offset-m2 offset-l2">
               <div class="input-field">
                 <input type="text" id="query" data-length="30" />
-                <label for="query" class="black-text">Shoe Name</label>
+                <label for="query" class="teal-text">Shoe Name</label>
               </div>
             </div>
             <div class="col input-field s10 m2 l3">
@@ -23,7 +23,7 @@ $(document).ready(function () {
             </div>
             <div class="col input-field s10 m1 l1">
               <input type="text" id="shoeYr" data-length="4" />
-              <label for="shoeYr" class="black-text">Year</label>
+              <label for="shoeYr" class="teal-text">Year</label>
             </div>
             <div class="col input-field s10 m2 l1">
               <select id="shoeGdr">

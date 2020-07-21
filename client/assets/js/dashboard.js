@@ -81,7 +81,7 @@ $(document).ready(function () {
           resultContainer.push(data);
           $("#result").append(`
             <div class="col s12 m4 l4">
-              <div id="content" class="card large center-align">
+              <div id="content" class="card large center-align hoverable">
                 <div class="card-title" style="font-weight: bold; font-size: large;">
                   ${data.name} (${data.gender})
                 </div>

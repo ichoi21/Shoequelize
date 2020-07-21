@@ -22,10 +22,10 @@ $(document).on("click", "#btnContact", function (e) {
           <div class="col s12 m6 l6">
             <ul id="social" class="nav-wrapper" style="font-size:36px; display:inline; margin-right:20px">
               <li><a href = "mailto: shoequelize3@gmail.com?subject = Feedback&body = Message"><span class="material-icons white-text" style="font-size:36px">email</span></a></li>
-              <li><a href="https://twitter.com/shoequelize" target="blank"><span class="white-text"><i class="fab fa-twitter"></i></span></a></li>
-              <li><a href="https://www.facebook.com/Shoequelize-106448554477502/" target="blank"><span class="white-text"><i class="fab fa-facebook"></i></span></a></li>
-              <li><a href="https://www.instagram.com/shoequelize/" target="blank"><span class="white-text"><i class="fab fa-instagram"></i></span></a></li>
-              <li><a href="https://www.pinterest.com/search/pins/?q=sneakers&rs=typed&term_meta[]=sneakers%7Ctyped" target="blank"><span class="white-text"><i class="fa fa-pinterest-square"></i></span></a></li>
+              <li><a href="https://twitter.com/shoequelize" target="blank"><span class="white-text" style="font-size:36px"><i class="fab fa-twitter"></i></span></a></li>
+              <li><a href="https://www.facebook.com/Shoequelize-106448554477502/" target="blank"><span class="white-text" style="font-size:36px"><i class="fab fa-facebook"></i></span></a></li>
+              <li><a href="https://www.instagram.com/shoequelize/" target="blank"><span class="white-text" style="font-size:36px"><i class="fab fa-instagram"></i></span></a></li>
+              <li><a href="https://www.pinterest.com/search/pins/?q=sneakers&rs=typed&term_meta[]=sneakers%7Ctyped" target="blank"><span class="white-text" style="font-size:36px"><i class="fa fa-pinterest-square"></i></span></a></li>
             </ul>
           </div>
         </div>
