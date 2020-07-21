@@ -19,152 +19,29 @@
   </head>
 
   <body>
+    <!-- Modal to register user to create a database -->
     <div
       id="registerModal"
       class="modal modal-fit-content light-green lighten-5"
-    >
-      <div class="modal-content">
-        <h4>ShoeNatics</h4>
-        <p>Register for your free account</p>
-        <form id="registerForm">
-          <div class="row">
-            <div class="input-field col s12 m8 l8">
-              <input id="registerAlias" type="text" />
-              <label for="alias">Alias</label>
-            </div>
-            <div class="input-field col s12 m4 l4">
-              <input id="registerSize" type="text" />
-              <label for="registerSize">(US) Shoe Size</label>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="registerEmail" type="email" class="validate" />
-                <label for="email">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="registerPassword" type="password" class="validate" />
-                <label for="password">Password</label>
-              </div>
-            </div>
-          </div>
+    ></div>
 
-          <div class="row">
-            <div class="col s6">
-              <a
-                href="#!"
-                id="registerCancel"
-                class="waves-effect waves-green btn-flat"
-                ><i class="material-icons left">cancel</i>Cancel</a
-              >
-            </div>
-            <div class="col s6">
-              <div class="right-align">
-                <button action="submit" class="waves-effect waves-light btn">
-                  <i class="material-icons left">assignment</i>Register
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+    <!-- Modal to log user into their database -->
+    <div
+      id="loginModal"
+      class="modal modal-fit-content light-green lighten-5"
+    ></div>
 
-    <div id="loginModal" class="modal modal-fit-content light-green lighten-5">
-      <div class="modal-content m6 l4">
-        <h4>ShoeNatics</h4>
-        <p>Login to access your collection!</p>
-        <form id="loginForm">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="loginEmail" type="email" class="validate" />
-              <label for="email">Email</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="loginPassword" type="password" class="validate" />
-              <label for="password">Password</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <a
-                href="#!"
-                id="loginCancel"
-                class="waves-effect waves-green btn-flat"
-                ><i class="material-icons left">cancel</i>Cancel</a
-              >
-            </div>
-            <div class="col s6">
-              <div class="right-align">
-                <button
-                  action="submit"
-                  class="waves-effect waves-light btn purple"
-                >
-                  <i class="material-icons left">account_circle</i>Login
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
+    <!-- top nav -->
     <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper green lighten-2">
-          <div class="row">
-            <div class="col sm-12">
-              <a href="/#!" class="brand-logo"
-                >Shoe<span class="deep-orange-text"
-                  >q<span class="yellow-text">u</span>e</span
-                >lize</a
-              >
-              <a href="/#!" data-target="mobile-demo" class="sidenav-trigger"
-                ><i class="material-icons">menu</i></a
-              >
-            </div>
-            <ul class="right hide-on-med-and-down">
-              <li>
-                <a class="signupBtn" href="#!"
-                  ><i class="material-icons right">assignment</i>Sign up</a
-                >
-              </li>
-              <li>
-                <a class="loginBtn" href="#!"
-                  ><i class="material-icons right">account_circle</i>Login</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div id="alert" class=""></div>
-      </nav>
+      <nav></nav>
     </div>
-    <ul class="sidenav" id="mobile-demo">
-      <li>
-        <a class="signupBtn" href="#!"
-          ><i class="material-icons right">assignment</i>Register</a
-        >
-      </li>
-      <li>
-        <a class="loginBtn" href="#"
-          ><i class="material-icons right">account_circle</i>Login</a
-        >
-      </li>
-    </ul>
+    <!-- expandable side nav -->
+    <ul class="sidenav" id="mobile-demo"></ul>
+
     <main id="mainBody" class="">
       <div class="row">
         <div class="parallax-container">
-          <div class="row"></div>
-          <div class="row"></div>
-          <div class="row"></div>
-          <div class="row"></div>
-          <div class="row"></div>
-          <div class="row"></div>
-          <div class="row" id="searchBar"></div>
+          <div class="row" id="searchBar" style="margin-top: 100px;"></div>
 
           <div class="parallax">
             <img
@@ -203,6 +80,7 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/landing.js"></script>
+    <script src="./assets/js/navbar.js"></script>
     <script src="./assets/js/lib.js"></script>
     <script src="./assets/js/footer.js"></script>
   </body>

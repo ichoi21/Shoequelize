@@ -34,7 +34,7 @@ $(document).ready(function () {
       <p class="blue-grey-text dark center-align"> © 2020 Shoequelize, All rights reserved.</p>
       </div>
     </div>
-  </footer>  
+  </footer> 
   <script src="./assets/js/about.js"></script>
   <script src="./assets/js/contact.js"></script>
   <script src="./assets/js/press.js"></script> 
