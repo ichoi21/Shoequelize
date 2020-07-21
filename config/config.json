@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "NugPup28@",
-=======
-    "password": "F@rt0minor",
->>>>>>> 927d6314328b0d56599a37083b06e2357448c675
     "database": "shoes_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
