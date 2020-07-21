@@ -10,7 +10,7 @@ $(document).ready(function () {
     dismissible: true,
   });
 
-  $("#loginForm").on("submit", function (e) {
+  $(document).on("submit", "#loginForm", function (e) {
     e.preventDefault();
     const newUser = {
       email: $("#loginEmail").val().trim(),
@@ -19,7 +19,7 @@ $(document).ready(function () {
     loginUser(newUser).then(() => window.location.replace("/dashboard"));
   });
 
-  $("#registerForm").on("submit", function (e) {
+  $(document).on("submit", "#registerForm", function (e) {
     e.preventDefault();
     const newUser = {
       alias: $("#registerAlias").val().trim(),
