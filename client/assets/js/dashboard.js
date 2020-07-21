@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $(".sidenav").sidenav();
   $(".fixed-action-btn").floatingActionButton();
   stockx();
 
@@ -15,7 +16,7 @@ $(document).ready(function () {
     url: "/auth/user",
   }).then((res) => (userAlias = res.alias));
 
-  $("#shoeCollection").on("click", () => {
+  $(document).on("click", "#shoeCollection", () => {
     window.location.href = "/collection";
   });
 

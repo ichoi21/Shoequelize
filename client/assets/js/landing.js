@@ -1,8 +1,6 @@
 $(document).ready(function () {
-  // $("select").formSelect();
   $(".carousel").carousel();
   $(".parallax").parallax();
-  $(".sidenav").sidenav();
 
   const loginModal = document.getElementById("loginModal");
   const loginModalInstance = M.Modal.init(loginModal, { dismissible: true });
@@ -12,7 +10,7 @@ $(document).ready(function () {
     dismissible: true,
   });
 
-  $("#loginForm").on("submit", function (e) {
+  $(document).on("submit", "#loginForm", function (e) {
     e.preventDefault();
     const newUser = {
       email: $("#loginEmail").val().trim(),
@@ -21,7 +19,7 @@ $(document).ready(function () {
     loginUser(newUser).then(() => window.location.replace("/dashboard"));
   });
 
-  $("#registerForm").on("submit", function (e) {
+  $(document).on("submit", "#registerForm", function (e) {
     e.preventDefault();
     const newUser = {
       alias: $("#registerAlias").val().trim(),
@@ -34,11 +32,11 @@ $(document).ready(function () {
     registerUser(newUser).then(() => location.replace("/"));
   });
 
-  $(".signupBtn").on("click", function () {
+  $(document).on("click", ".signupBtn", function () {
     registerModalInstance.open();
   });
 
-  $(".loginBtn").on("click", function () {
+  $(document).on("click", ".loginBtn", function () {
     loginModalInstance.open();
   });
 
