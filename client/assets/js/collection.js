@@ -147,7 +147,7 @@ $(document).ready(function () {
   });
 
   // search function to search by shoe brand
-  $("#searchBar").on("click", "#btnSearch", (e) => {
+  $("#searchBBar").on("click", "#btnSearch", (e) => {
     e.preventDefault();
     searchStatus = true;
     const brand = $("#query").val();
