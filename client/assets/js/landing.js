@@ -40,11 +40,11 @@ $(document).ready(function () {
     loginModalInstance.open();
   });
 
-  $("#loginCancel").on("click", function () {
+  $(document).on("click", "#loginCancel", function () {
     loginModalInstance.close();
   });
 
-  $("#registerCancel").on("click", function () {
+  $(document).on("click", "#registerCancel", function () {
     registerModalInstance.close();
   });
 
