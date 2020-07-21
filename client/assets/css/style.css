@@ -60,17 +60,9 @@ input {
   color: rgb(24, 23, 23) !important;
 }
 
-<<<<<<< HEAD
-#searchBar.card {
-  opacity: 80%;
-  /* background-color: rgba(91, 147, 211, 0.671); */
-}
-=======
 /* #searchBar.card {
   opacity: 80%;
   /* background-color: rgba(91, 147, 211, 0.671); */
-} */
->>>>>>> ab6d9daac56126a6baf9c3c7512f5b4af616d1f6
 
 #contact {
   font-size: 27px !important;
